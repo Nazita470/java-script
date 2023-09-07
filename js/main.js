@@ -60,9 +60,7 @@ function ganador( num ){
                 tusPuntos+=1
                 return "Elegiste tijera \nElegi tijera \n EMPATE"
         }
-    } else {
-
-    }
+    } 
 }
 
 function nadieGano(){
@@ -86,7 +84,7 @@ while( misPuntos < 3 && tusPuntos < 3) {
 }
 
 if(yoGane() && tuGanaste()){
- alert("Empate")
+    alert("Empate")
 }
 else if(misPuntos == 3){
     alert("Perdiste")
