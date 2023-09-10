@@ -90,5 +90,5 @@ else if(misPuntos == 3){
     alert("Perdiste")
 } 
 else if (tuGanaste()){
-    alert("Ganaste")
+    alert("Ganaste!")
 } 
