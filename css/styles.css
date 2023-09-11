@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header .navbar {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+header .navbar button {
+  border: none;
+}
+header .navbar a {
+  color: black;
+}
+
+main .bar-aside {
+  border: 1px solid black;
+}
+main .seccion_productos .card-title, main .seccion_productos .card-text {
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  height: 200px;
+}/*# sourceMappingURL=styles.css.map */
