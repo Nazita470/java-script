@@ -1,11 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+html {
+  display: flex;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+header {
+  z-index: 2;
+}
 header .navbar {
-  padding: 20px;
+  padding: 10px 30px;
   align-items: center;
   justify-content: center;
 }
@@ -16,11 +30,100 @@ header .navbar a {
   color: black;
 }
 
-main .bar-aside {
-  border: 1px solid black;
+main {
+  overflow: hidden;
+  flex: 1;
 }
-main .seccion_productos .card-title, main .seccion_productos .card-text {
+main .contenedor {
+  overflow: hidden;
+}
+main .bar-aside {
+  width: 20%;
+  min-width: 400px;
+  z-index: 2;
+  background-color: rgb(235, 93, 57);
+}
+main .bar-aside h1 {
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-size: 2rem;
+}
+main .bar-aside .btn {
+  min-width: 20%;
+  width: auto;
+  height: 40px;
+  background-color: white;
+  color: black;
+}
+main .bar-aside .btn:hover {
+  background-color: rgb(165, 164, 164);
+  box-shadow: 3px 3px gray;
+}
+main .bar-aside .nav ul {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style: none;
+}
+main .bar-aside .nav ul li {
+  width: 100;
+  text-align: end;
+  list-style: none;
+}
+main .bar-aside .nav ul li .boton-nav {
+  width: 35%;
+  padding-right: 10px;
   text-align: center;
+  height: 50px;
+  background-color: rgb(235, 93, 57);
+  border: none;
+  color: white;
+}
+main .bar-aside .nav ul li .boton-nav:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  border-radius: 30% 0% 0% 30%;
+}
+main .seccion_productos {
+  flex: 1;
+}
+main .seccion_productos .contenedor {
+  overflow-y: scroll;
+  margin-left: 20px;
+}
+main .seccion_productos .contenedor .producto {
+  width: 300px;
+  height: 500px;
+  border: 1px solid black;
+  padding: 10px;
+}
+main .seccion_productos .contenedor .producto .seccion_imagen {
+  height: 60%;
+}
+main .seccion_productos .contenedor .producto .seccion_imagen .imagen {
+  object-fit: cover;
+}
+main .seccion_productos .contenedor .producto .seccion_nombreProducto {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+main .seccion_productos .contenedor .producto .seccion_nombreProducto .nombreProducto {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+main .seccion_productos .contenedor .producto .seccion_nombreProducto .precioProducto {
+  font-size: 20px;
+  text-align: center;
+}
+main .seccion_productos .contenedor .producto .seccion_nombreProducto .botonAgregar {
+  height: 50px;
+  background-color: rgb(235, 93, 57);
+  color: white;
+  border-radius: 30px;
 }
 
 footer {
