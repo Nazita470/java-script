@@ -20,7 +20,12 @@ header{
     }
     
  }
- 
+
+ @media (max-width: 600px){
+    header{
+        border-bottom: 1px solid white;
+    }
+ }
  
  
  

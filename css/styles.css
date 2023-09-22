@@ -35,6 +35,11 @@ header .navbar a {
   color: black;
 }
 
+@media (max-width: 600px) {
+  header {
+    border-bottom: 1px solid white;
+  }
+}
 main {
   width: 100%;
   overflow: hidden;
@@ -55,30 +60,37 @@ main .contenedor .bar-aside {
   z-index: 2;
   background-color: rgb(235, 93, 57);
   border: none;
+  flex-direction: column;
 }
-main .contenedor .bar-aside h1 {
-  text-shadow: black 0.1em 0.1em 0.2em;
-  font-size: 25px;
+main .contenedor .bar-aside .div-genero {
+  margin-top: 30px;
 }
-main .contenedor .bar-aside .btn {
-  width: 100px;
-  height: 40px;
-  background-color: white;
-  color: black;
+main .contenedor .bar-aside .div-genero .btn1 {
+  background-color: black;
+  color: white;
 }
-main .contenedor .bar-aside .nav ul {
+main .contenedor .bar-aside .div-genero .btn1:hover {
+  border: 2px solid white;
+}
+main .contenedor .bar-aside .div-genero .btn1 i {
+  font-size: 30px;
+}
+main .contenedor .bar-aside .div-navegador {
+  margin-top: 30px;
+  height: 50%;
+}
+main .contenedor .bar-aside .div-navegador .nav ul {
   text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   list-style: none;
 }
-main .contenedor .bar-aside .nav ul li {
+main .contenedor .bar-aside .div-navegador .nav ul li {
   width: 100;
-  text-align: end;
   list-style: none;
 }
-main .contenedor .bar-aside .nav ul li .boton-nav {
+main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
   width: 150px;
   padding-right: 10px;
   text-align: center;
@@ -87,7 +99,7 @@ main .contenedor .bar-aside .nav ul li .boton-nav {
   border: none;
   color: white;
 }
-main .contenedor .bar-aside .nav ul li .boton-nav:hover {
+main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav:hover {
   background-color: white;
   color: black;
   border: 1px solid white;
@@ -143,6 +155,43 @@ main .contenedor .seccion_productos .contenedor .producto .seccion_nombreProduct
   border-radius: 30px;
 }
 
+@media (max-width: 800px) {
+  main .contenedor {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  main .contenedor {
+    height: 100%;
+    border: none;
+  }
+  main .contenedor .bar-aside {
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+  }
+  main .contenedor .bar-aside .div-genero {
+    width: 30%;
+    margin: 0px;
+  }
+  main .contenedor .bar-aside .div-navegador {
+    height: 100%;
+    width: 70%;
+    margin: 0px;
+  }
+  main .contenedor .bar-aside .div-navegador .nav {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  main .contenedor .bar-aside .div-navegador .nav ul li {
+    text-align: center;
+  }
+  main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
+    width: 100px;
+    border-radius: 20px;
+  }
+}
 footer {
   background-color: black;
   height: 200px;

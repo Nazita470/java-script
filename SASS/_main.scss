@@ -20,20 +20,27 @@ main{
       z-index: 2;
       background-color: $color-principal;
       border: none;
-        h1{
-         text-shadow: black 0.1em 0.1em 0.2em;
-         font-size: 25px;
-        }
-
-        .btn {
-            width: 100px;
-            height: 40px;
-            background-color: white;
-            color: black;
-        }
-
-        .nav{
-          ul{
+      flex-direction: column;
+        
+      .div-genero{
+         margin-top: 30px;
+         .btn1 {
+            background-color: black;
+            color: white;
+            &:hover{
+               border: 2px solid white
+            }
+            i{
+               font-size: 30px;
+            }
+      }
+      }
+        
+      .div-navegador{
+         margin-top: 30px;
+         height: 50%;
+         .nav{
+            ul{
             text-decoration: none;
             display: flex;
             flex-direction: column;
@@ -41,9 +48,9 @@ main{
             list-style: none;
             li{
                width: 100;
-               text-align: end;
+               //text-align: end;
                list-style: none;
-              
+               
                .boton-nav{
                   width: 150px;
                   padding-right: 10px;
@@ -61,9 +68,11 @@ main{
 
                }
             }
-          }
-            
-        }
+         }
+           
+       }
+   }
+        
        
      }
      
@@ -124,4 +133,50 @@ main{
    
   }
    
+   }
+
+   @media (max-width: 800px) {
+     main{
+      .contenedor{
+         width: 100%;
+      }
+     }
+   }
+
+   @media (max-width: 600px) {
+      main{
+         .contenedor{
+            height: 100%;
+            border: none;
+            .bar-aside{
+               width: 100%;
+               margin: 0;
+               flex-direction: row;
+               .div-genero{
+                  width: 30%;
+                  margin: 0px;
+               }
+               .div-navegador{
+                  height: 100%;
+                  width: 70%;
+                  margin: 0px;
+                  .nav{
+                     width: 100%;
+                     align-items: center;
+                     justify-content: center;
+                     ul{
+                        li{
+                           text-align: center;
+                           .boton-nav{
+                              width: 100px;
+                              border-radius: 20px;
+                           }
+                        }
+                     }
+                  }
+               }
+               
+            }
+         }
+      }
    }
