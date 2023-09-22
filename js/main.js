@@ -92,7 +92,7 @@ while(seguir){
         break;    
         
         default:
-            alert("Elige un numero del 1 al 5");
+            alert("Elige un numero del 1 al 6");
         break;    
     }
 }

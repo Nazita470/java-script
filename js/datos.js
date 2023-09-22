@@ -18,13 +18,13 @@ let productos = [
     }, 
 
     { 
-        "nombre": "Shores", 
+        "nombre": "Short", 
         "genero": "m",
         "precio": 3500    
     }, 
 
     { 
-        "nombre": "Shores", 
+        "nombre": "Short", 
         "genero": "f",
         "precio": 3500    
     }, 
