@@ -1,94 +1,98 @@
-/* 
-1 = piedra
-2 = papel
-3 = tijera 
-*/
+//console.log(productos);
 
-let mensaje = "Piedra, papel o tijera \n Al mejor de tres  \n 1 = Piedra \n 2 = Papel \n 3 = tijeras \n Elige tu jugada"
+let mensaje = 
+    "Bienvenido al negocio \n" +
+    "1: Ver todos los productos \n" +
+    "2: Ver productos mujeres \n" +
+    "3: Ver productos hombres \n" +
+    "4: Ver que productos hay \n" +
+    "5: Agregar producto \n" + 
+    "6: Cerrar"
 
-let misPuntos = 0;
-let tusPuntos = 0;
+let seguir = true;
 
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min) + min)
+function desarmar(ar){
+    let mensaje = ""
+    ar.forEach(producto => mensaje += "\n Producto: " + producto.nombre + "  Genero: " + producto.genero + "       Precio: " + producto.precio);
+    return mensaje;
 }
 
-function ganador( num ){
-    let miJugada = getRandomInt(1,3);
+function mostrarGenero(genero){
+    const filtrado = productos.some(producto => producto.genero == genero) ?  productos.filter( producto => producto.genero == genero) : alert("No tenemos preoductos de ese genero")
 
-    if(num == 1){
-        switch(miJugada){
-            case 1:
-                misPuntos+=1
-                tusPuntos+=1
-                return "Elegiste piedra \nElegi piedra \n EMPATE"
-            case 2:
-                misPuntos+=1
-                return "Elegiste piedra \nElegi papel \n PERDISTE"
-            case 3:
-                tusPuntos+=1
-                return "Elegiste piedra \nElegi tijera \n GANASTE"
+    alert(desarmar(filtrado))
+}
+
+function mostrarProductos(){
+    let mensaje = ""; 
+    let nombres = [];
+    productos.forEach(producto => nombres.includes(producto.nombre) ? console.log("repe") : nombres.push(producto.nombre))
+    nombres.forEach(nombre => mensaje += nombre + "\n")
+    alert(mensaje)
+}
+
+function agregarProductos(){
+    const nombre = prompt("Nombre")
+    let genero = "";
+
+    while(!(genero == "m" || genero == "f")) {
+
+        let g = prompt("Genero");
+        console.log(g)
+        console.log(g != "m");
+        console.log(g != "f");
+
+
+        if( (g == 'm') || (g == 'f' ) ) {
+            genero = g;
+        }else{
+            alert("Ingresa m o f")
         }
-    } 
-    else if (num == 2){
-        switch(miJugada){
-            case 1:
-                tusPuntos+=1
-                return "Elegiste papel \nElegi piedra \n GANASTE"
-            case 2:
-                misPuntos+=1
-                tusPuntos+=1
-                return "Elegiste papel \nElegi papel \n EMPATE"
-            case 3:
-                misPuntos+=1
-                return "Elegiste papel \nElegi tijera \n Perdiste"
+
+    }
+
+    const precio = +prompt("Precio")
+    
+    productos.push(
+        {
+            "nombre": nombre,
+            "genero": genero,
+            "precio": precio
         }
-    } 
-    else if(num == 3) {
-        switch(miJugada){
-            case 1:
-                misPuntos+=1
-                return "Elegiste tijera \nElegi piedra \n PERDISTE"
-            case 2:
-                tusPuntos+=1
-                return "Elegiste tijera \nElegi papel \n GANASTE"
-            case 3:
-                misPuntos+=1
-                tusPuntos+=1
-                return "Elegiste tijera \nElegi tijera \n EMPATE"
-        }
-    } 
+    )
 }
 
-function nadieGano(){
-    return (misPuntos < 3 || tusPuntos < 3)
-}
+while(seguir){
+    const numero = +prompt(mensaje);
 
-function yoGane(){
-    return misPuntos == 3
-}
+    switch(numero){
+        case 1:
+            alert(desarmar(productos));
+        break;
+    
+        case 2:
+            mostrarGenero('f');
+        break;
+        
+        case 3: 
+            mostrarGenero('m');
+        break;
+        
+        case 4:
+            mostrarProductos();
+        break;
 
-function tuGanaste(){
-    return tusPuntos == 3
-}
+        case 5:
+            agregarProductos();
+            alert("Producto agregado")
+        break;
 
-
-while( misPuntos < 3 && tusPuntos < 3) {
-    let suJugada = prompt(mensaje)
-    alert(ganador(suJugada))
-    console.log("Tus puntos: " + tusPuntos);
-    console.log("Mis puntos " + misPuntos);
+        case 6:
+            seguir = false;
+        break;    
+        
+        default:
+            alert("Elige un numero del 1 al 5");
+        break;    
+    }
 }
-
-if(yoGane() && tuGanaste()){
-    alert("Empate")
-}
-else if(misPuntos == 3){
-    alert("Perdiste")
-} 
-else if (tuGanaste()){
-    alert("Ganaste!")
-} 
