@@ -17,42 +17,85 @@ body {
 
 header {
   z-index: 2;
-  background-color: rgb(235, 93, 57);
+  background-color: white;
+  box-shadow: 2px 2px 10px;
+  position: absolute;
 }
 header .navbar {
   padding: 10px 10%;
   align-items: center;
   justify-content: center;
 }
-header .navbar button {
-  border: none;
-  background-color: transparent;
-}
-header .navbar button i {
+header .navbar span {
   font-size: 50px;
+  font-weight: bold;
+  color: rgb(235, 93, 57);
 }
-header .navbar a {
+header .navbar ul {
+  list-style: none;
+}
+header .navbar ul li {
+  position: absolute;
+}
+header .navbar ul li:hover #carrito {
+  display: block;
+  position: absolute;
+}
+header .navbar ul li #carrito {
+  display: none;
+  width: 100%;
+  top: 100%;
+  right: 0;
+  height: 100vh;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  min-width: 300px;
+  z-index: 2;
+}
+header .navbar ul li #carrito .productoSeleccionado {
+  height: 100px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .navbar ul li #carrito .productoSeleccionado img {
+  width: 30%;
+  height: 100%;
+}
+header .navbar ul li #carrito .productoSeleccionado p {
+  font-size: 16px;
   color: black;
+  margin-right: 20px;
 }
-
+header .navbar ul li #carrito .productoSeleccionado button {
+  border: none;
+  color: none;
+  width: auto;
+  height: auto;
+  background-color: white;
+}
 @media (max-width: 600px) {
-  header {
+  header header {
     border-bottom: 1px solid white;
   }
 }
+
 main {
   width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
 }
 main .contenedor {
   overflow: hidden;
-  width: 70%;
+  width: 100%;
   border: 1px solid black;
-  height: 90%;
+  height: 100%;
 }
 main .contenedor .bar-aside {
   width: 10%;
@@ -91,7 +134,7 @@ main .contenedor .bar-aside .div-navegador .nav ul li {
   list-style: none;
 }
 main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
-  width: 150px;
+  width: 100%;
   padding-right: 10px;
   text-align: center;
   height: 50px;
@@ -153,6 +196,7 @@ main .contenedor .seccion_productos .contenedor .producto .seccion_nombreProduct
   background-color: rgb(235, 93, 57);
   color: white;
   border-radius: 30px;
+  width: 100%;
 }
 
 @media (max-width: 800px) {

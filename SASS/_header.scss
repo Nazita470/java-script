@@ -1,23 +1,74 @@
 header{
     z-index: 2;
-    background-color: $color-principal;
+    background-color: white;
+    box-shadow: 2px 2px 10px;
+    position: absolute;
     .navbar{
       padding: 10px 10%;
       align-items: center;
       justify-content: center; 
      
-        button{
-            border: none;
-            background-color: transparent;
-            i{
-                font-size: 50px;
+        span{
+            font-size: 50px;
+            font-weight: bold;
+            color: $color-principal;
+        }
+
+        ul{
+            list-style: none;
+            li{
+               position: absolute; 
+                &:hover{
+                    #carrito{
+                        display: block;
+                        position: absolute;
+                    }
+                }    
+
+                #carrito{
+                    display: none;
+                    width: 100%;
+                    top: 100%;
+                    right: 0;
+                    height: 100vh;
+                    z-index: 1;
+                    background-color: white;
+                    padding: 10px;
+                    min-width: 300px;
+                    z-index: 2;
+                    .productoSeleccionado{
+                        height: 100px;
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid black; 
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img{
+                            width: 30%;
+                            height: 100%;
+                        }
+                        p{
+                            font-size: 16px;
+                            color: black;
+                            margin-right: 20px;
+                        }
+                        button{
+                            border: none;
+                            color: none;
+                            width: auto;
+                            height: auto;
+                            background-color: white;
+                        }
+                    }
+                }
+
             }
         }
 
-        a{
-            color: black;
-        }
-    }
+       
+        
     
  }
 
@@ -27,7 +78,7 @@ header{
     }
  }
  
- 
+}
  
  
  

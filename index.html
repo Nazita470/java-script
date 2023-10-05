@@ -8,28 +8,39 @@
 
    <link rel="stylesheet" href="./css/bootstrap.min.css">
    <link rel="stylesheet" href="./css/styles.css">
-     
-
-    <script src="https://kit.fontawesome.com/fa3a0fd4c5.js" crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/fa3a0fd4c5.js"  crossorigin="anonymous"></script>
+   <script src="js/main.js" defer></script>
+   <script src="./JS/bootstrap.bundle.min.js" defer></script>
     
 </head>
+
+
 <body class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
 
-    <header class="position-sticky top-0 w-100">
+    <header class="position-sticky top-0 w-100 p-2">
         <nav class="navbar navbar-ligth bg-ligth">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
-                <img src="./assets/img/Antoni-logos_transparent.png" alt="" height="100px" class="d-inline-block align-text-top">
-
+                <span class="logo">Antoni</span>
               </a>
 
-              <button type="button me-2" class="position-relative">
-                <i class="fa-solid fa-cart-shopping fa-2xl m-2"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  
-                  <span class="visually-hidden">unread messages</span>
-                </span>
-              </button>
+              <ul>
+                  <li>
+                    <img src="./assets/cart.png" alt="carrito">
+
+                   
+                    
+
+                      <div id="carrito">
+                          <div class="productoSeleccionado"> 
+                              <img src="" alt="">
+                              <p class="nombre">Producto</p>
+                              <p class="precio">Precio</p>
+                              <button><i class="fas fa-times" style="color: #f00000;"></i></button>
+                          </div>
+                    </div>
+                  </li>
+              </ul>
             </div>
           </nav>
     </header>
@@ -73,7 +84,7 @@
                                 <section class="seccion_nombreProducto">
                                     <p class="nombreProducto w-100">Remera</p>
                                     <p class="precioProducto w-100">$10.000</p>
-                                    <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                    <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                                 </section>
                             </div>
 
@@ -85,7 +96,7 @@
                               <section class="seccion_nombreProducto">
                                   <p class="nombreProducto w-100">Remera Negra</p>
                                   <p class="precioProducto w-100">$11.000</p>
-                                  <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                  <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                               </section>
                           </div>
 
@@ -97,7 +108,7 @@
                             <section class="seccion_nombreProducto">
                                 <p class="nombreProducto w-100">Remera rosa</p>
                                 <p class="precioProducto w-100">$9.500</p>
-                                <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                             </section>
                           </div>
                   </div>
@@ -112,7 +123,7 @@
                             <section class="seccion_nombreProducto">
                                 <p class="nombreProducto w-100">Remera Isela</p>
                                 <p class="precioProducto w-100">$10.000</p>
-                                <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                             </section>
                         </div>
 
@@ -124,7 +135,7 @@
                           <section class="seccion_nombreProducto">
                               <p class="nombreProducto w-100">Remera blanca</p>
                               <p class="precioProducto w-100">$11.500</p>
-                              <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                           </section>
                         </div>
 
@@ -136,7 +147,7 @@
                         <section class="seccion_nombreProducto">
                             <p class="nombreProducto w-100">Zapatillas Bridger</p>
                             <p class="precioProducto w-100">$45.000</p>
-                            <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                         </section>
                       </div>
 
@@ -152,7 +163,7 @@
                               <section class="seccion_nombreProducto">
                                   <p class="nombreProducto w-100">Zapatillas Impulse</p>
                                   <p class="precioProducto w-100">$38.500</p>
-                                  <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                  <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
                               </section>
                         </div>
 
@@ -164,7 +175,7 @@
                             <section class="seccion_nombreProducto">
                                 <p class="nombreProducto w-100">Zapatillas</p>
                                 <p class="precioProducto w-100">$25.000</p>
-                                <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                                <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
                             </section>
                         </div>
 
@@ -176,7 +187,7 @@
                           <section class="seccion_nombreProducto">
                               <p class="nombreProducto w-100">Zapatillas</p>
                               <p class="precioProducto w-100">$34.500</p>
-                              <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                              <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
                           </section>
                       </div>
 
@@ -192,7 +203,7 @@
                           <section class="seccion_nombreProducto">
                               <p class="nombreProducto w-100">Pantalon Cargo</p>
                               <p class="precioProducto w-100">$18.500</p>
-                              <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                           </section>
                     </div>
 
@@ -204,7 +215,7 @@
                         <section class="seccion_nombreProducto">
                             <p class="nombreProducto w-100">Jean</p>
                             <p class="precioProducto w-100">$15.000</p>
-                            <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                         </section>
                     </div>
 
@@ -216,7 +227,7 @@
                       <section class="seccion_nombreProducto">
                           <p class="nombreProducto w-100">Short</p>
                           <p class="precioProducto w-100">$6.500</p>
-                          <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                          <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                       </section>
                     </div>
 
@@ -232,7 +243,7 @@
                           <section class="seccion_nombreProducto">
                               <p class="nombreProducto w-100">Short</p>
                               <p class="precioProducto w-100">$8.500</p>
-                              <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                           </section>
                     </div>
 
@@ -244,7 +255,7 @@
                         <section class="seccion_nombreProducto">
                             <p class="nombreProducto w-100">Pantalon Cargo</p>
                             <p class="precioProducto w-100">$25.000</p>
-                            <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                         </section>
                     </div>
 
@@ -256,7 +267,7 @@
                       <section class="seccion_nombreProducto">
                           <p class="nombreProducto w-100">Short</p>
                           <p class="precioProducto w-100">$4.500</p>
-                          <button class="botonAgregar w-100">Agregar <i class="fas fa-plus"></i></button>
+                          <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
                       </section>
                   </div>
 
@@ -270,7 +281,6 @@
     </main>
 
 
-    <script src="js/main.js"></script>
-    <script src="./JS/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

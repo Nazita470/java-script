@@ -6,13 +6,13 @@ main{
    align-items: center;
   
    //background-image: url(https://cdn.pixabay.com/photo/2018/05/24/04/58/tag-3425877_1280.jpg);
-   background-color: black;
+  // background-color: black;
   .contenedor{
    overflow: hidden;
    
-   width: 70%;
+   width: 100%;
    border: 1px solid black;
-   height: 90%;
+   height: 100%;
 
    .bar-aside{
       width: 10%;
@@ -48,11 +48,10 @@ main{
             list-style: none;
             li{
                width: 100;
-               //text-align: end;
                list-style: none;
                
                .boton-nav{
-                  width: 150px;
+                  width: 100%;
                   padding-right: 10px;
                   text-align: center;
                   height: 50px;
@@ -124,6 +123,7 @@ main{
                   background-color: $color-principal;
                   color: white;
                   border-radius: 30px;
+                  width: 100%;
                }
             }   
             
