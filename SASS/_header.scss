@@ -1,8 +1,77 @@
 header{
+    
     z-index: 2;
     background-color: white;
     box-shadow: 2px 2px 10px;
-    position: absolute;
+    position: sticky;
+    top: 0;
+
+    .carrito{
+        background-color: $color-principal;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 300px;
+        top: 0;
+        right: -500px;
+        height: 100vh;
+        z-index: 1;
+        padding: 10px;
+        overflow-y: scroll;
+        //min-width: 300px;
+        z-index: 2;
+        transition: all 500ms linear;
+        a{
+            display: block;
+            text-align: center;
+            color: black;
+        }
+        button{
+            border: none;
+            color: none;
+            width: auto;
+            height: auto;
+            background-color: inherit;
+        }
+        .contenedorProductos {
+            width: 100%;
+            height: auto;
+           
+        }
+        .productoSeleccionado{
+            background-color: white;
+            height: 100px;
+            width: 100%;
+            border: 1px solid black; 
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            overflow: hidden;
+            div{
+                overflow: hidden;
+                width: 30%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 70%;
+                    height: 70%;
+                }
+                p{
+                   text-align: center; 
+                }
+            }
+    
+           
+            p{
+                font-size: 16px;
+                color: black;
+                margin-right: 20px;
+            }
+           
+        }
+    }
+
     .navbar{
       padding: 10px 10%;
       align-items: center;
@@ -17,60 +86,35 @@ header{
         ul{
             list-style: none;
             li{
-               position: absolute; 
-                &:hover{
-                    #carrito{
-                        display: block;
-                        position: absolute;
-                    }
-                }    
-
-                #carrito{
-                    display: none;
-                    width: 100%;
-                    top: 100%;
-                    right: 0;
-                    height: 100vh;
-                    z-index: 1;
-                    background-color: white;
-                    padding: 10px;
-                    min-width: 300px;
-                    z-index: 2;
-                    .productoSeleccionado{
-                        height: 100px;
-                        width: 100%;
-                        padding: 10px;
-                        border: 1px solid black; 
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        img{
-                            width: 30%;
-                            height: 100%;
-                        }
-                        p{
-                            font-size: 16px;
-                            color: black;
-                            margin-right: 20px;
-                        }
-                        button{
-                            border: none;
-                            color: none;
-                            width: auto;
-                            height: auto;
-                            background-color: white;
-                        }
+                #check-carrito{
+                    &:checked{
+                      #l{
+                        color: blue;
+                      
+                      }
+                      #carrito{
+                        //display: block;
+                     }
                     }
                 }
 
+              
+
+                  
             }
         }
+              
+    }
+               
+
+               
+            }
+        
 
        
         
     
- }
+ 
 
  @media (max-width: 600px){
     header{
@@ -78,7 +122,7 @@ header{
     }
  }
  
-}
+
  
  
  

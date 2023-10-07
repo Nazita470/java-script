@@ -11,14 +11,24 @@
    <script src="https://kit.fontawesome.com/fa3a0fd4c5.js"  crossorigin="anonymous"></script>
    <script src="js/main.js" defer></script>
    <script src="./JS/bootstrap.bundle.min.js" defer></script>
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
     
 </head>
 
 
 <body class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
-
-    <header class="position-sticky top-0 w-100 p-2">
-        <nav class="navbar navbar-ligth bg-ligth">
+ 
+    <header class=" top-0 w-100 p-2">
+      <div class="carrito">
+        <button id="boton_cierre">  <i class="fas fa-times fa-2x1" > </i></button>
+        <div class="contenedorProductos"> </div>
+        <a class="eliminarProductos" href="#"> Eliminar todo</a>
+      </div>
+          <nav class="navbar navbar-ligth bg-ligth">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
                 <span class="logo">Antoni</span>
@@ -26,19 +36,12 @@
 
               <ul>
                   <li>
-                    <img src="./assets/cart.png" alt="carrito">
+                    <!-- <input type="checkbox" id="check-carrito" value="second_checkbox" />
+                    <label id="l" for="check-carrito"> Carrito <img id="img-carrito" src="./assets/cart.png" alt="carrito"> </label>  -->
 
-                   
+                    <button id="boton-carrito"><img id="img-carrito" src="./assets/cart.png" alt="carrito"> </button>
+
                     
-
-                      <div id="carrito">
-                          <div class="productoSeleccionado"> 
-                              <img src="" alt="">
-                              <p class="nombre">Producto</p>
-                              <p class="precio">Precio</p>
-                              <button><i class="fas fa-times" style="color: #f00000;"></i></button>
-                          </div>
-                    </div>
                   </li>
               </ul>
             </div>
@@ -46,8 +49,8 @@
     </header>
   
     <main>
-
-        <section class="d-flex row contenedor">
+     
+        <section class="d-flex contenedor">
 
           <section class="bar-aside  p-0 row d-flex align-items-center ">
 
@@ -64,218 +67,203 @@
             <div class="p-0  div-navegador">
               <nav class="nav h-100">
                   <ul class="w-100">
-                    <li><button class="boton-nav">Zapatillas</button></li>
-                    <li><button class="boton-nav">Remeras</button></li>
-                    <li><button class="boton-nav">Pantalones</button></li>
-                    <li><button class="boton-nav">Shorts</button></li>
+                    <li><button id="boton-zapatillas" class="boton-nav">Zapatillas</button></li>
+                    <li><button id="boton-remeras" class="boton-nav">Remeras</button></li>
+                    <li><button id="boton-pantalones" class="boton-nav">Pantalones</button></li>
+                    <li><button id="boton-shorts" class="boton-nav">Shorts</button></li>
                   </ul>
               </nav>
             </div>
           </section>
 
           <section class="seccion_productos h-100 p-0">
-              <div class="contenedor d-flex flex-column h-100 w-100">
-                  <div class="fila d-flex justify-content-evenly mt-5 pb-3">
-                            <div class="producto">
-                                <section class="seccion_imagen">
-                                  <img src="./assets/img/Hombres/remera_hombre_gris.jpg" alt="remera_hombre_gris" class="imagen">
-                                </section>
+              <div class="contenedor h-100 w-100">
+                <div producto="remera" genero="m" data-id="1" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/remera_hombre_gris.jpg" alt="remera_hombre_gris" class="imagen">
+                  </section>
 
-                                <section class="seccion_nombreProducto">
-                                    <p class="nombreProducto w-100">Remera</p>
-                                    <p class="precioProducto w-100">$10.000</p>
-                                    <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                                </section>
-                            </div>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Remera</p>
+                      <p class="precioProducto w-100">$10.000</p>
+                      <button  class="botonAgregar dt">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                            <div class="producto">
-                              <section class="seccion_imagen">
-                                <img src="./assets/img/Hombres/remera_hombre_negra.jpg" alt="remera_hombre_negra" class="imagen">
-                              </section>
+                <div producto="remera" genero="m" data-id="2" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/remera_hombre_negra.jpg" alt="remera_hombre_negra" class="imagen">
+                  </section>
 
-                              <section class="seccion_nombreProducto">
-                                  <p class="nombreProducto w-100">Remera Negra</p>
-                                  <p class="precioProducto w-100">$11.000</p>
-                                  <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                              </section>
-                          </div>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Remera Negra</p>
+                      <p class="precioProducto w-100">$11.000</p>
+                      <button    class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                          <div class="producto">
-                            <section class="seccion_imagen">
-                              <img src="./assets/img/Hombres/remera_hombre_negra.jpg" alt="remera_hombre_rosa" class="imagen">
-                            </section>
+                <div  producto="remera" genero="m" data-id="3"  class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/remera_hombre_rosa.jpg" alt="remera_hombre_rosa" class="imagen">
+                  </section>
 
-                            <section class="seccion_nombreProducto">
-                                <p class="nombreProducto w-100">Remera rosa</p>
-                                <p class="precioProducto w-100">$9.500</p>
-                                <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                            </section>
-                          </div>
-                  </div>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Remera rosa</p>
+                      <p class="precioProducto w-100">$9.500</p>
+                      <button   class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                  <div class="fila d-flex justify-content-evenly mt-5 pb-3">
+                <div producto="remera" genero="f" data-id="4" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="/assets/img/Mujeres/rsz_1remera-de-mujer-isela.jpg" alt="remera-de-mujer-isela" class="imagen">
+                  </section>
 
-                      <div class="producto">
-                            <section class="seccion_imagen">
-                              <img src="/assets/img/Mujeres/rsz_1remera-de-mujer-isela.jpg" alt="remera-de-mujer-isela" class="imagen">
-                            </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Remera Isela</p>
+                      <p class="precioProducto w-100">$10.000</p>
+                      <button    class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                            <section class="seccion_nombreProducto">
-                                <p class="nombreProducto w-100">Remera Isela</p>
-                                <p class="precioProducto w-100">$10.000</p>
-                                <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                            </section>
-                        </div>
+                <div producto="remera" genero="f" data-id="5" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Mujeres/remera_mujer_blanca.jpg" alt="remera_mujer_blanca" class="imagen">
+                  </section>
 
-                        <div class="producto">
-                          <section class="seccion_imagen">
-                            <img src="./assets/img/Mujeres/remera_mujer_blanca.jpg" alt="remera_mujer_blanca" class="imagen">
-                          </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Remera blanca</p>
+                      <p class="precioProducto w-100">$11.500</p>
+                      <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                          <section class="seccion_nombreProducto">
-                              <p class="nombreProducto w-100">Remera blanca</p>
-                              <p class="precioProducto w-100">$11.500</p>
-                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                          </section>
-                        </div>
+                <div producto="zapatillas" genero="m" data-id="6" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/zapatillas-de-hombre-bridger.jpg" alt="zapatillas-de-hombre-bridger" class="imagen">
+                  </section>
 
-                      <div class="producto">
-                        <section class="seccion_imagen">
-                          <img src="./assets/img/Hombres/zapatillas-de-hombre-bridger.jpg" alt="zapatillas-de-hombre-bridger" class="imagen">
-                        </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Zapatillas Bridger</p>
+                      <p class="precioProducto w-100">$45.000</p>
+                      <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                        <section class="seccion_nombreProducto">
-                            <p class="nombreProducto w-100">Zapatillas Bridger</p>
-                            <p class="precioProducto w-100">$45.000</p>
-                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                        </section>
-                      </div>
+                <div producto="zapatillas" genero="f" data-id="7"  class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Mujeres/zapatillas-de-mujer-impulse-v4.jpg" alt="zapatillas-de-mujer-impulse-v4" class="imagen">
+                  </section>
 
-                  </div>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Zapatillas Impulse</p>
+                      <p class="precioProducto w-100">$38.500</p>
+                      <button    class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                  <div class="fila d-flex justify-content-evenly mt-5 pb-3">
+                <div producto="zapatillas" genero="m" data-id="8" class="producto">
+                    <section class="seccion_imagen">
+                      <img src="./assets/img/Hombres/zapatillas_n_hombre.jpg" alt="zapatillas_n_hombre" class="imagen">
+                    </section>
 
-                        <div class="producto">
-                              <section class="seccion_imagen">
-                                <img src="./assets/img/Mujeres/zapatillas-de-mujer-impulse-v4.jpg" alt="zapatillas-de-mujer-impulse-v4" class="imagen">
-                              </section>
+                    <section class="seccion_nombreProducto">
+                        <p class="nombreProducto w-100">Zapatillas</p>
+                        <p class="precioProducto w-100">$25.000</p>
+                        <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
+                    </section>
+                </div>
 
-                              <section class="seccion_nombreProducto">
-                                  <p class="nombreProducto w-100">Zapatillas Impulse</p>
-                                  <p class="precioProducto w-100">$38.500</p>
-                                  <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
-                              </section>
-                        </div>
+                <div producto="zapatillas" genero="f" data-id="9" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Mujeres/zapatillas_rosaBlanca_mujer.jpg" alt="zapatillas_rosaBlanca_mujer" class="imagen">
+                  </section>
 
-                        <div class="producto">
-                            <section class="seccion_imagen">
-                              <img src="./assets/img/Hombres/zapatillas_n_hombre.jpg" alt="zapatillas_n_hombre" class="imagen">
-                            </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Zapatillas</p>
+                      <p class="precioProducto w-100">$34.500</p>
+                      <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                            <section class="seccion_nombreProducto">
-                                <p class="nombreProducto w-100">Zapatillas</p>
-                                <p class="precioProducto w-100">$25.000</p>
-                                <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
-                            </section>
-                        </div>
+                <div producto="pantalon" genero="m" data-id="10" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/pantalon-cargo-hombre.jpg" alt="pantalon-cargo-hombre" class="imagen">
+                  </section>
 
-                        <div class="producto">
-                          <section class="seccion_imagen">
-                            <img src="./assets/img/Mujeres/zapatillas_rosaBlanca_mujer.jpg" alt="zapatillas_rosaBlanca_mujer" class="imagen">
-                          </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Pantalon Cargo</p>
+                      <p class="precioProducto w-100">$18.500</p>
+                      <button    class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                          <section class="seccion_nombreProducto">
-                              <p class="nombreProducto w-100">Zapatillas</p>
-                              <p class="precioProducto w-100">$34.500</p>
-                              <button class="botonAgregar ">Agregar <i class="fas fa-plus"></i></button>
-                          </section>
-                      </div>
+                <div producto="pantalon" genero="f" data-id="11" class="producto">
+                    <section class="seccion_imagen">
+                      <img src="./assets/img/Mujeres/jean_mujer.png" alt="jean_mujer" class="imagen">
+                    </section>
 
-                  </div>
+                    <section class="seccion_nombreProducto">
+                        <p class="nombreProducto w-100">Jean</p>
+                        <p class="precioProducto w-100">$15.000</p>
+                        <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                    </section>
+                </div>  
 
-                  <div class="fila d-flex justify-content-evenly mt-5 pb-3">
+                <div producto="short" genero="m" data-id="12" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Hombres/short-hombre.jpg" alt="short-hombre" class="imagen">
+                  </section>
 
-                    <div class="producto">
-                          <section class="seccion_imagen">
-                            <img src="./assets/img/Hombres/pantalon-cargo-hombre.jpg" alt="pantalon-cargo-hombre" class="imagen">
-                          </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Short</p>
+                      <p class="precioProducto w-100">$6.500</p>
+                      <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                          <section class="seccion_nombreProducto">
-                              <p class="nombreProducto w-100">Pantalon Cargo</p>
-                              <p class="precioProducto w-100">$18.500</p>
-                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                          </section>
-                    </div>
+                <div producto="short" genero="f" data-id="13" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Mujeres/short-jean-mujer.jpg" alt="short-jean-mujer" class="imagen">
+                  </section>
 
-                    <div class="producto">
-                        <section class="seccion_imagen">
-                          <img src="./assets/img/Mujeres/jean_mujer.png" alt="jean_mujer" class="imagen">
-                        </section>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Short</p>
+                      <p class="precioProducto w-100">$8.500</p>
+                      <button    class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                 </div>
 
-                        <section class="seccion_nombreProducto">
-                            <p class="nombreProducto w-100">Jean</p>
-                            <p class="precioProducto w-100">$15.000</p>
-                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                        </section>
-                    </div>
+                <div producto="pantalon" genero="m" data-id="14" class="producto">
+                    <section class="seccion_imagen">
+                      <img src="./assets/img/Hombres/images.jpg" alt="cargo_hombre" class="imagen">
+                    </section>
 
-                    <div class="producto">
-                      <section class="seccion_imagen">
-                        <img src="./assets/img/Hombres/short-hombre.jpg" alt="short-hombre" class="imagen">
-                      </section>
+                    <section class="seccion_nombreProducto">
+                        <p class="nombreProducto w-100">Pantalon Cargo</p>
+                        <p class="precioProducto w-100">$25.000</p>
+                        <button  class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                    </section>
+                </div>
 
-                      <section class="seccion_nombreProducto">
-                          <p class="nombreProducto w-100">Short</p>
-                          <p class="precioProducto w-100">$6.500</p>
-                          <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                      </section>
-                    </div>
+                <div producto="short" genero="f" data-id="15" class="producto">
+                  <section class="seccion_imagen">
+                    <img src="./assets/img/Mujeres/short-mujer.jpg" alt="short-mujer" class="imagen">
+                  </section>
 
-                  </div>
+                  <section class="seccion_nombreProducto">
+                      <p class="nombreProducto w-100">Short</p>
+                      <p class="precioProducto w-100">$4.500</p>
+                      <button   class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
+                  </section>
+                </div>
 
-                  <div class="fila d-flex justify-content-evenly mt-5 pb-3">
-
-                    <div class="producto">
-                          <section class="seccion_imagen">
-                            <img src="./assets/img/Mujeres/short-jean-mujer.jpg" alt="short-jean-mujer" class="imagen">
-                          </section>
-
-                          <section class="seccion_nombreProducto">
-                              <p class="nombreProducto w-100">Short</p>
-                              <p class="precioProducto w-100">$8.500</p>
-                              <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                          </section>
-                    </div>
-
-                    <div class="producto">
-                        <section class="seccion_imagen">
-                          <img src="./assets/img/Hombres/images.jpg" alt="cargo_hombre" class="imagen">
-                        </section>
-
-                        <section class="seccion_nombreProducto">
-                            <p class="nombreProducto w-100">Pantalon Cargo</p>
-                            <p class="precioProducto w-100">$25.000</p>
-                            <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                        </section>
-                    </div>
-
-                    <div class="producto">
-                      <section class="seccion_imagen">
-                        <img src="./assets/img/Mujeres/short-mujer.jpg" alt="short-mujer" class="imagen">
-                      </section>
-
-                      <section class="seccion_nombreProducto">
-                          <p class="nombreProducto w-100">Short</p>
-                          <p class="precioProducto w-100">$4.500</p>
-                          <button class="botonAgregar">Agregar <i class="fas fa-plus"></i></button>
-                      </section>
-                  </div>
-
-              </div>
-
-              
               </div>
           </section>
+
+          <div id="mensaje">
+            <p>Producto agregado</p>
+          </div>
         </section>  
       
     </main>

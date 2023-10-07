@@ -4,15 +4,13 @@ main{
    display: flex;
    justify-content: center;
    align-items: center;
-  
-   //background-image: url(https://cdn.pixabay.com/photo/2018/05/24/04/58/tag-3425877_1280.jpg);
-  // background-color: black;
+   flex-grow: 1;
   .contenedor{
-   overflow: hidden;
+      overflow: hidden;
    
-   width: 100%;
-   border: 1px solid black;
-   height: 100%;
+      width: 100%;
+      border: 1px solid black;
+      height: 100%;
 
    .bar-aside{
       width: 10%;
@@ -21,6 +19,7 @@ main{
       background-color: $color-principal;
       border: none;
       flex-direction: column;
+      height: 100%;
         
       .div-genero{
          margin-top: 30px;
@@ -76,7 +75,7 @@ main{
      }
      
      .seccion_productos{
-      flex: 1;
+      flex-grow: 1;
      
       .contenedor{
          overflow-y: scroll;
@@ -84,13 +83,15 @@ main{
          border : none;
          background-color: white;
          margin: 0;;
-         > div{
-            flex-wrap: wrap;
-          }
+         flex-wrap: wrap;
+         display: flex;
+         justify-content: space-evenly;
+         padding: 50px;
          .producto{
             width: 300px;
             height: 500px;
             border: 1px solid black;
+            margin: 0px 100px;
             margin-bottom: 30px;
             .seccion_imagen{
                height: 60%;
@@ -124,14 +125,38 @@ main{
                   color: white;
                   border-radius: 30px;
                   width: 100%;
+                  &:hover{
+                     border: 2px solid black;
+                  }
                }
             }   
             
          }
       }
      }
+
+     #mensaje {
+      position: absolute;
+      color: black;
+      border: 1px solid black;
+      display: inline-block;
+      width: 200px;
+      height: 30px;
+      font-size: 16px;
+      bottom: -100px;
+      right: 20px;
+      z-index: 1;
+      color: white;
+      background-color: rgb(77, 76, 76);
+      display: flex;
+      justify-content: start;
+      p{
+         text-align: center;
+      }
+     }
    
   }
+  
    
    }
 
