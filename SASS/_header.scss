@@ -45,8 +45,11 @@ header{
             border: 1px solid black; 
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 30px;
             overflow: hidden;
+            padding: 10px;
+            padding-bottom: 0px;
             div{
                 overflow: hidden;
                 width: 30%;
@@ -54,20 +57,26 @@ header{
                 justify-content: center;
                 align-items: center;
                 img{
+                    margin-bottom: 5px;
                     width: 70%;
                     height: 70%;
                 }
                 p{
-                   text-align: center; 
+                   text-align: center;
+                   font-size: 10px; 
+                   margin: 0px
                 }
             }
     
            
-            p{
+            .p{
                 font-size: 16px;
                 color: black;
+                margin: 0px;
                 margin-right: 20px;
             }
+
+            
            
         }
     }

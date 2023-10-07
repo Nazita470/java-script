@@ -87,7 +87,7 @@ main{
      
      .seccion_productos{
       flex-grow: 1;
-     
+      }
       .contenedor{
          overflow-y: scroll;
          margin-left: 20px;
@@ -96,9 +96,22 @@ main{
          margin: 0;;
          flex-wrap: wrap;
          display: flex;
+         flex-grow: 1;
          //justify-content: space-evenly;
          padding: 50px;
          //padding-top: 0px;
+            .titulo{
+               display: block;
+               height: 70px;
+               width: 100%;
+               margin-bottom: 30px;
+               padding-left: 100px;
+               h1{
+                  font-size: 50px;
+                  font-weight: bold;
+               }
+            }
+         
          
          .producto{
             width: 300px;
@@ -163,6 +176,7 @@ main{
       background-color: rgb(77, 76, 76);
       display: flex;
       justify-content: start;
+      align-items: center;
       p{
          text-align: center;
       }
@@ -171,7 +185,7 @@ main{
   }
   
    
-   }
+   
 
    @media (max-width: 800px) {
      main{

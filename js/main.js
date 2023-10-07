@@ -395,6 +395,12 @@ function filtrarHombre(){
 function mostrarFiltrado(mensaje){
     console.log(productoMostrar)
     borrarProductosMain()
+    
+    if(mensaje){
+        agregarTitulo(mensaje)
+    }else {
+
+    }
     productoMostrar.forEach((item) => {
         let div = document.createElement("div")
         div.classList.add("producto")
@@ -454,6 +460,13 @@ function filtrarProducto(arr, str){
 
 function filtrarGenero(str){
     productoMostrar =  productoMostrar.filter((item) => item.genero == str)
+}
+
+function agregarTitulo(mensaje) {
+    let div_titulo = document.createElement("div")
+    div_titulo.classList.add("titulo")
+    div_titulo.innerHTML = `<h1>${mensaje}</h1>`
+    contenedor_productos.append(div_titulo)
 }
 
 
