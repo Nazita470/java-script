@@ -56,21 +56,42 @@
 
             <div class="d-flex justify-content-center align-items-center div-genero">
 
-              <input type="radio" class="btn-check" name="options" id="option-Hombre" autocomplete="off" checked>
-              <label class="btn1 p-2 rounded-circle d-flex flex-column  text-center me-2" for="option-Hombre"><i class="fas fa-male"></i>M</label>
+              <input type="checkbox" class="check" name="options" id="option-Hombre" autocomplete="off">
+              <label class="btn1  text-center me-2" for="option-Hombre">
+                <img width="50px" height="50px" src="./assets/img/icons8-head-profile-64.png" alt="imagen de hombre">
+              </label>
 
-              <input type="radio" class="btn-check" name="options" id="option-Mujer" autocomplete="off">
-              <label class="btn1 p-2 rounded-circle d-flex flex-column  text-center" for="option-Mujer"><i class="fas fa-female"> </i>F</label>
+              <input type="checkbox" class="check" name="options" id="option-Mujer" autocomplete="off">
+              <label class="btn1  text-center" for="option-Mujer">              
+                <img width="50px" height="50px" src="./assets/img/icons8-woman-head-50.png" alt="imagen de mujer">
+              </label>
 
             </div>
 
             <div class="p-0  div-navegador">
               <nav class="nav h-100">
                   <ul class="w-100">
-                    <li><button id="boton-zapatillas" class="boton-nav">Zapatillas</button></li>
-                    <li><button id="boton-remeras" class="boton-nav">Remeras</button></li>
-                    <li><button id="boton-pantalones" class="boton-nav">Pantalones</button></li>
-                    <li><button id="boton-shorts" class="boton-nav">Shorts</button></li>
+                    <li>
+                      <input type="radio" id="boton-zapatillas" name="botones" value="boton-zapatillas">
+                      <label class="boton-nav" for="boton-zapatillas">Zapatillas</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="boton-remeras" name="botones" value="remeras">
+                      <label class="boton-nav" for="boton-remeras">Remeras</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="boton-pantalones" name="botones" value="pantalones">
+                      <label class="boton-nav" for="boton-pantalones">Pantalones</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="boton-short" name="botones" value="s">
+                      <label class="boton-nav" for="boton-short">Shorts</label>
+                    </li>
+
+                    <li>
+                      <input type="radio" id="boton-todos" name="botones" value="t">
+                      <label class="boton-nav" for="boton-todos">Todos</label>
+                    </li>
                   </ul>
               </nav>
             </div>

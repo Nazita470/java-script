@@ -15,6 +15,13 @@ button {
   background-color: white;
 }
 
+.boton-seleccionado {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+  border-radius: 30px 0px 0px 30px !important;
+}
+
 html {
   display: flex;
 }
@@ -145,15 +152,20 @@ main .contenedor .bar-aside {
 main .contenedor .bar-aside .div-genero {
   margin-top: 30px;
 }
+main .contenedor .bar-aside .div-genero .check {
+  display: none;
+}
+main .contenedor .bar-aside .div-genero .check:checked + .btn1 {
+  background-color: white;
+  border: 1px solid black;
+}
 main .contenedor .bar-aside .div-genero .btn1 {
-  background-color: black;
-  color: white;
+  background-color: rgb(235, 93, 57);
+  border-radius: 50%;
+  padding: 5px;
 }
 main .contenedor .bar-aside .div-genero .btn1:hover {
-  border: 2px solid white;
-}
-main .contenedor .bar-aside .div-genero .btn1 i {
-  font-size: 30px;
+  background-color: white;
 }
 main .contenedor .bar-aside .div-navegador {
   margin-top: 30px;
@@ -169,6 +181,9 @@ main .contenedor .bar-aside .div-navegador .nav ul {
 main .contenedor .bar-aside .div-navegador .nav ul li {
   width: 100;
   list-style: none;
+}
+main .contenedor .bar-aside .div-navegador .nav ul li input[type=radio] {
+  display: none;
 }
 main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
   width: 100%;
@@ -196,7 +211,6 @@ main .contenedor .seccion_productos .contenedor {
   margin: 0;
   flex-wrap: wrap;
   display: flex;
-  justify-content: space-evenly;
   padding: 50px;
 }
 main .contenedor .seccion_productos .contenedor .producto {

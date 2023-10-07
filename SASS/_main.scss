@@ -23,14 +23,20 @@ main{
         
       .div-genero{
          margin-top: 30px;
-         .btn1 {
-            background-color: black;
-            color: white;
-            &:hover{
-               border: 2px solid white
+         .check{
+            display: none;
+            &:checked + .btn1{
+                  background-color: white;
+                  border: 1px solid black;
+            }             
             }
-            i{
-               font-size: 30px;
+         
+         .btn1 {
+            background-color: $color-principal;
+            border-radius: 50%;
+            padding: 5px;
+            &:hover{
+               background-color: white;
             }
       }
       }
@@ -48,7 +54,10 @@ main{
             li{
                width: 100;
                list-style: none;
-               
+
+               input[type="radio"]{
+                  display: none;
+               }
                .boton-nav{
                   width: 100%;
                   padding-right: 10px;
@@ -63,6 +72,8 @@ main{
                      border: 1px solid white;
                      border-radius: 30px 0px 0px 30px;
                   }
+
+                  
 
                }
             }
@@ -85,8 +96,10 @@ main{
          margin: 0;;
          flex-wrap: wrap;
          display: flex;
-         justify-content: space-evenly;
+         //justify-content: space-evenly;
          padding: 50px;
+         //padding-top: 0px;
+         
          .producto{
             width: 300px;
             height: 500px;

@@ -1,9 +1,22 @@
 
 let articulosCarrito = []
+const productos = []
+let woman = false
+let man = false
+let zapatillasCheck = false
+let remerasCheck = false
+let pantalonesCheck = false
+let shortsCheck = false
+let todo = false
+let productoMostrar = []
+let seleccionado = zapatillasCheck || remerasCheck || pantalonesCheck || shortsCheck
 
+//Cargar productos cuando recarge la pagina
 window.addEventListener("load", () => {
     articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
     agregarAlHTML()
+    recuperarProductos()
+    mostrarFiltrado()
 })
 
 //Declarar constantes
@@ -14,25 +27,37 @@ const contenedor_productos = document.querySelector(".seccion_productos .contene
 const contenedorProductos = document.querySelector(".carrito .contenedorProductos")
 const mensaje = document.querySelector("#mensaje")
 const botonEliminar = document.querySelector(".eliminarProductos")
-const boton_filtrar_zapatillas = document.querySelector(".boton-zapatillas")
-const boton_filtrar_pantalones = document.querySelector(".boton-pantalones")
-const boton_filtrar_shores = document.querySelector(".boton-shores")
-const boton_filtrar_remeras = document.querySelector(".boton-remeras")
+const boton_filtrar_zapatillas = document.querySelector("#boton-zapatillas")
+const boton_filtrar_pantalones = document.querySelector("#boton-pantalones")
+const boton_filtrar_shores = document.querySelector("#boton-short")
+const boton_filtrar_remeras = document.querySelector("#boton-remeras")
+const boton_filtrar_todos = document.querySelector("#boton-todos")
+const check_generoMujer = document.querySelector("#option-Mujer")
+const check_generoHombre = document.querySelector("#option-Hombre")
+const classProductos = document.querySelectorAll(".producto")
 
-//Eventos
+//Event
 contenedor_productos.addEventListener("click", agregarCarrito)
 
 barra_carrito.addEventListener("click", eliminarProducto)
 
 botonEliminar.addEventListener("click", vaciarCarrito)
 
-boton_filtrar_zapatillas.addEventListener("click", filtrarZapatillas())
+boton_filtrar_zapatillas.addEventListener("change", filtrarZapatillas)
 
-boton_filtrar_pantalones.addEventListener("click", filtrarPantalones())
+boton_filtrar_pantalones.addEventListener("change", filtrarPantalones)
 
-boton_filtrar_shores.addEventListener("click", filtrarShort())
+boton_filtrar_shores.addEventListener("change", filtrarShort)
 
-boton_filtrar_remeras.addEventListener("click", filtraRemeras())
+boton_filtrar_remeras.addEventListener("change", filtraRemeras)
+
+boton_filtrar_todos.addEventListener("change", filtrarTodos)
+
+check_generoMujer.addEventListener("change", filtrarMujer)
+check_generoHombre.addEventListener("change", filtrarHombre)
+
+console.log(woman)
+console.log(man)
 
 //Barra con la lista de productos
 boton_carrito.addEventListener("click", () =>{
@@ -152,24 +177,283 @@ function agregarStorage(){
 
 //funciones de filtrado
 function filtrarZapatillas(){
+    boton_filtrar_remeras.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_pantalones.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_zapatillas.nextElementSibling.classList.add("boton-seleccionado")
+    boton_filtrar_shores.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_todos.nextElementSibling.classList.remove("boton-seleccionado")
+    let mensaje = ""
 
+    zapatillasCheck =  true
+    pantalonesCheck = false
+    shortsCheck = false
+    todo = false 
+    remerasCheck = false
+
+    if(zapatillasCheck){
+        productoMostrar = filtrarProducto(productos, "zapatillas")
+        if(woman == man){
+          mensaje = "Zapatillas"
+        }else if(man){
+            filtrarGenero("m")
+            mensaje = "Zapatillas de hombres"
+        }else if(woman){
+            filtrarGenero("f")
+            mensaje = "zapatillas de mujeres"
+        }
+    }
+        
+    
+    mostrarFiltrado(mensaje)
+    
 }
 
 function filtrarPantalones(){
+    boton_filtrar_remeras.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_pantalones.nextElementSibling.classList.add("boton-seleccionado")
+    boton_filtrar_zapatillas.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_shores.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_todos.nextElementSibling.classList.remove("boton-seleccionado")
+    let mensaje = ""
+    
+    zapatillasCheck =  false
+    pantalonesCheck = true
+    shortsCheck = false
+    todo = false 
+    remerasCheck = false
 
+    if(pantalonesCheck) {
+        productoMostrar = filtrarProducto(productos, "pantalon")
+        if(woman == man){
+          mensaje = "Pantalones"
+        }else if(man){
+            mensaje = "Pantalones de hombre"
+            filtrarGenero("m")
+        }else if(woman){
+            mensaje = "Pantalones de mujer"
+            filtrarGenero("f")
+        }
+    }
+
+    mostrarFiltrado(mensaje)
 }
 
 function filtraRemeras(){
+    boton_filtrar_remeras.nextElementSibling.classList.add("boton-seleccionado")
+    boton_filtrar_pantalones.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_zapatillas.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_shores.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_todos.nextElementSibling.classList.remove("boton-seleccionado")
+    let mensaje = ""
 
+    zapatillasCheck =  false
+    pantalonesCheck = false
+    shortsCheck = false
+    todo = false 
+    remerasCheck = true
+
+
+    console.log("remera: " + remerasCheck)
+    if(remerasCheck) {
+        productoMostrar = filtrarProducto(productos, "remera")
+        console.log(productoMostrar)
+        if(woman == man){
+          mensaje = "Remeras"
+        }else if(man){
+            filtrarGenero("m")
+            mensaje = "Remeras de hombre"
+        }else if(woman){
+            mensaje = "Remeras de mujer"
+            filtrarGenero("f")
+        }
+    }
+
+    mostrarFiltrado(mensaje)
 }
 
 function filtrarShort(){
+    boton_filtrar_remeras.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_pantalones.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_zapatillas.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_shores.nextElementSibling.classList.add("boton-seleccionado")
+    boton_filtrar_todos.nextElementSibling.classList.remove("boton-seleccionado")
+    let mensaje = ""
 
+    zapatillasCheck =  false
+    pantalonesCheck = false
+    shortsCheck = true
+    todo = false 
+    remerasCheck = false
+
+    if(shortsCheck) {
+        productoMostrar = filtrarProducto(productos, "short")
+        if(woman == man){
+          mensaje = "Shorts"
+        }else if(man){
+            mensaje = "Shorts de hombres"
+            filtrarGenero("m")
+        }else if(woman){
+            mensaje = "Shorts de mujeres"
+            filtrarGenero("f")
+        }
+    }
+
+    mostrarFiltrado(mensaje)
 }
 
-//funcion para dibujar
-function mostrarFiltrado(arr){
+function filtrarTodos(){
+    boton_filtrar_remeras.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_pantalones.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_zapatillas.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_shores.nextElementSibling.classList.remove("boton-seleccionado")
+    boton_filtrar_todos.nextElementSibling.classList.add("boton-seleccionado")
+    let mensaje = ""
 
+    zapatillasCheck =  false
+    pantalonesCheck = false
+    shortsCheck = false
+    todo = true 
+    remerasCheck = false
+
+    if(todo){
+        productoMostrar = productos
+         if(woman == man){
+            mensaje = "Todos"
+         }else if(man){
+            mensaje = "Hombres"
+            filtrarGenero("m")
+         }else if(woman){
+            mensaje = "Mujeres"
+            filtrarGenero("f")
+         }
+    }
+
+    mostrarFiltrado(mensaje)
+}
+
+function filtrarMujer(){
+    woman = woman == false
+    let mensaje = ""
+    if(woman && man == false) {
+        filtrarGenero("f")
+        mensaje = "Mujeres"
+
+    }else if (man && woman == false){
+        mensaje = "Hombres"
+       filtrarGenero("m")
+    }
+    else if(man == woman && todo){
+          productoMostrar = productos
+          mensaje = "Todo"
+    }
+    else if (man == woman && todo == false){
+        if(zapatillasCheck){
+          productoMostrar = filtrarProducto(productos, "zapatillas")
+        } else if(remerasCheck){
+            productoMostrar =   filtrarProducto(productos, "remera")
+        } else if(shortsCheck){
+            productoMostrar =  filtrarProducto(productos, "short")
+        } else if(pantalonesCheck){
+            productoMostrar =  filtrarProducto(productos, "pantalon")
+        }
+    }
+    mostrarFiltrado(mensaje)
+}
+
+function filtrarHombre(){
+    man = man == false
+    let mensaje = ""
+    if(man && woman == false) {
+      filtrarGenero("m")
+        mensaje = "Hombre"
+   
+    }else if (man == false && woman){
+      filtrarGenero("f")
+      mensaje = "Mujer"
+
+    }else if(man == woman && todo){
+        productoMostrar = productos
+        mensaje = "Todo"
+    }
+    else if (man == woman && todo == false){
+        if(zapatillasCheck){
+            productoMostrar =   filtrarProducto(productos, "zapatillas")
+        } else if(remerasCheck){
+            productoMostrar =  filtraProducto(productos, "remera")
+        } else if(shortsCheck){
+            productoMostrar = filtrarProducto(productos, "short")
+        } else if(pantalonesCheck){
+            productoMostrar = filtrarProducto(productos, "pantalon")
+        }
+    }
+    mostrarFiltrado(mensaje)
+}
+
+
+
+//funcion para dibujar
+function mostrarFiltrado(mensaje){
+    console.log(productoMostrar)
+    borrarProductosMain()
+    productoMostrar.forEach((item) => {
+        let div = document.createElement("div")
+        div.classList.add("producto")
+        div.setAttribute("producto", `${item.producto}`)
+        div.setAttribute("genero", `${item.genero}`)
+        div.setAttribute("data-id", `${item.id}`)
+        div.innerHTML = `
+                            <section class="seccion_imagen">
+                                <img src="${item.img}" alt="" class="imagen">
+                            </section>
+
+                            <section class="seccion_nombreProducto">
+                                    <p class="nombreProducto w-100">${item.nombre}</p>
+                                    <p class="precioProducto w-100">${item.precio}</p>
+                                    <button  class="botonAgregar dt">Agregar <i class="fas fa-plus"></i></button>
+                            </section> 
+        `
+        contenedor_productos.append(div)
+    })
+
+    
+}
+
+function borrarProductosMain(){
+    while(contenedor_productos.firstChild){
+        contenedor_productos.removeChild(contenedor_productos.firstChild)
+    }
+}
+
+//funcion para recuperar los productos
+function recuperarProductos(){
+    classProductos.forEach((item) => {
+        let img = item.querySelector("img").src
+        let nombre_p = item.querySelector(".nombreProducto").textContent
+        let precio = item.querySelector(".precioProducto").textContent
+        let id = item.getAttribute("data-id")
+        let genero = item.getAttribute("genero")
+        let tipoProducto = item.getAttribute("producto")
+
+        const p = {
+            nombre: nombre_p,
+            img: img,
+            precio: precio,
+            id: id, 
+            genero: genero,
+            producto: tipoProducto
+        }
+
+        productos.push(p)
+        productoMostrar.push(p)
+    })
+}
+
+function filtrarProducto(arr, str){
+    return arr.filter((item) => item.producto == str)
+}
+
+function filtrarGenero(str){
+    productoMostrar =  productoMostrar.filter((item) => item.genero == str)
 }
 
 
