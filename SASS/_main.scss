@@ -15,7 +15,7 @@ main{
    .bar-aside{
       width: 10%;
       min-width: 200px;
-      z-index: 2;
+      z-index: 1;
       background-color: $color-principal;
       border: none;
       flex-direction: column;
@@ -87,8 +87,7 @@ main{
      
      .seccion_productos{
       flex-grow: 1;
-      }
-      .contenedor{
+      .contenedor_p{
          overflow-y: scroll;
          margin-left: 20px;
          border : none;
@@ -97,10 +96,10 @@ main{
          flex-wrap: wrap;
          display: flex;
          flex-grow: 1;
-         //justify-content: space-evenly;
          padding: 50px;
-         //padding-top: 0px;
-            .titulo{
+         height: 100%;
+
+         .titulo{
                display: block;
                height: 70px;
                width: 100%;
@@ -110,77 +109,84 @@ main{
                   font-size: 50px;
                   font-weight: bold;
                }
-            }
-         
-         
+         }
+
          .producto{
-            width: 300px;
-            height: 500px;
-            border: 1px solid black;
-            margin: 0px 100px;
-            margin-bottom: 30px;
-            .seccion_imagen{
-               height: 60%;
-               .imagen{
-                  object-fit: cover;
-                  width: 100%;
-                  height: 100%;
-               }
-            }
-
-            .seccion_nombreProducto{
-               height: 40%;
-               display: flex;
-               flex-direction: column;
-               justify-content: space-evenly;
-               padding: 10px;
-               .nombreProducto{
-                  font-size: 30px;
-                  font-family: $letra-principal;
-                  text-align: center;
-               }
-
-               .precioProducto{
-                  font-size: 20px;
-                  text-align: center;
-               }
-
-               .botonAgregar{
-                  height: 50px;
-                  background-color: $color-principal;
-                  color: white;
-                  border-radius: 30px;
-                  width: 100%;
-                  &:hover{
-                     border: 2px solid black;
+               width: 300px;
+               height: 500px;
+               border: 1px solid black;
+               margin: 0px 100px;
+               margin-bottom: 30px;
+               .seccion_imagen{
+                  height: 60%;
+                  .imagen{
+                     object-fit: cover;
+                     width: 100%;
+                     height: 100%;
                   }
                }
-            }   
-            
+   
+               .seccion_nombreProducto{
+                  height: 40%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-evenly;
+                  padding: 10px;
+                  .nombreProducto{
+                     font-size: 30px;
+                     font-family: $letra-principal;
+                     text-align: center;
+                  }
+   
+                  .precioProducto{
+                     font-size: 20px;
+                     text-align: center;
+                  }
+   
+                  .botonAgregar{
+                     height: 50px;
+                     background-color: $color-principal;
+                     color: white;
+                     border-radius: 30px;
+                     width: 100%;
+                     &:hover{
+                        border: 2px solid black;
+                     }
+                  }
+               }   
+               
          }
+         
       }
+    
      }
+      
 
-     #mensaje {
-      position: absolute;
-      color: black;
-      border: 1px solid black;
-      display: inline-block;
-      width: 200px;
-      height: 30px;
-      font-size: 16px;
-      bottom: -100px;
-      right: 20px;
-      z-index: 1;
-      color: white;
-      background-color: rgb(77, 76, 76);
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      p{
-         text-align: center;
-      }
-     }
+      #mensaje {
+         position: absolute;
+         color: black;
+         border: 1px solid black;
+         display: inline-block;
+         width: 200px;
+         height: 30px;
+         font-size: 16px;
+         bottom: -100px;
+         right: 20px;
+         z-index: 1;
+         color: white;
+         background-color: rgb(77, 76, 76);
+         display: flex;
+         justify-content: center;
+         p{
+            text-align: center;
+            width: 100%;
+         }
+        }
+   }
+      
+     
+
+    
    
   }
   
@@ -200,31 +206,21 @@ main{
          .contenedor{
             height: 100%;
             border: none;
+            flex-direction: column;
             .bar-aside{
-               width: 100%;
-               margin: 0;
-               flex-direction: row;
-               .div-genero{
-                  width: 30%;
-                  margin: 0px;
-               }
-               .div-navegador{
-                  height: 100%;
-                  width: 70%;
-                  margin: 0px;
-                  .nav{
-                     width: 100%;
-                     align-items: center;
-                     justify-content: center;
-                     ul{
-                        li{
-                           text-align: center;
-                           .boton-nav{
-                              width: 100px;
-                              border-radius: 20px;
-                           }
-                        }
-                     }
+              width: 100%;
+               margin: 0;   
+            }
+            .seccion_productos{
+               margin: 0px;
+               overflow-y: scroll;
+               .contenedor_p{
+                  padding: 10px;
+                  align-items: center;
+                  overflow: unset;
+                  height: auto;
+                  .producto{
+                     margin: 25px 50px
                   }
                }
                

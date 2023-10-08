@@ -54,7 +54,7 @@ header .carrito {
   top: 0;
   right: -500px;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
   padding: 10px;
   overflow-y: scroll;
   z-index: 2;
@@ -125,9 +125,25 @@ header .navbar span {
 header .navbar ul {
   list-style: none;
 }
-header .navbar ul li #check-carrito:checked #l {
-  color: blue;
+header .navbar ul li #boton-carrito {
+  position: relative;
 }
+header .navbar ul li #boton-carrito span {
+  font-size: 16px;
+  background-color: rgb(235, 93, 57);
+  color: white;
+  width: auto;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 5px;
+  top: 15px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
   header {
     border-bottom: 1px solid white;
@@ -150,7 +166,7 @@ main .contenedor {
 main .contenedor .bar-aside {
   width: 10%;
   min-width: 200px;
-  z-index: 2;
+  z-index: 1;
   background-color: rgb(235, 93, 57);
   border: none;
   flex-direction: column;
@@ -210,7 +226,7 @@ main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav:hover {
 main .contenedor .seccion_productos {
   flex-grow: 1;
 }
-main .contenedor .contenedor {
+main .contenedor .seccion_productos .contenedor_p {
   overflow-y: scroll;
   margin-left: 20px;
   border: none;
@@ -220,60 +236,61 @@ main .contenedor .contenedor {
   display: flex;
   flex-grow: 1;
   padding: 50px;
+  height: 100%;
 }
-main .contenedor .contenedor .titulo {
+main .contenedor .seccion_productos .contenedor_p .titulo {
   display: block;
   height: 70px;
   width: 100%;
   margin-bottom: 30px;
   padding-left: 100px;
 }
-main .contenedor .contenedor .titulo h1 {
+main .contenedor .seccion_productos .contenedor_p .titulo h1 {
   font-size: 50px;
   font-weight: bold;
 }
-main .contenedor .contenedor .producto {
+main .contenedor .seccion_productos .contenedor_p .producto {
   width: 300px;
   height: 500px;
   border: 1px solid black;
   margin: 0px 100px;
   margin-bottom: 30px;
 }
-main .contenedor .contenedor .producto .seccion_imagen {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen {
   height: 60%;
 }
-main .contenedor .contenedor .producto .seccion_imagen .imagen {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-main .contenedor .contenedor .producto .seccion_nombreProducto {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto {
   height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 10px;
 }
-main .contenedor .contenedor .producto .seccion_nombreProducto .nombreProducto {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .nombreProducto {
   font-size: 30px;
   font-family: "Roboto", sans-serif;
   text-align: center;
 }
-main .contenedor .contenedor .producto .seccion_nombreProducto .precioProducto {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .precioProducto {
   font-size: 20px;
   text-align: center;
 }
-main .contenedor .contenedor .producto .seccion_nombreProducto .botonAgregar {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar {
   height: 50px;
   background-color: rgb(235, 93, 57);
   color: white;
   border-radius: 30px;
   width: 100%;
 }
-main .contenedor .contenedor .producto .seccion_nombreProducto .botonAgregar:hover {
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar:hover {
   border: 2px solid black;
 }
-main #mensaje {
+main .contenedor #mensaje {
   position: absolute;
   color: black;
   border: 1px solid black;
@@ -287,11 +304,11 @@ main #mensaje {
   color: white;
   background-color: rgb(77, 76, 76);
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: center;
 }
-main #mensaje p {
+main .contenedor #mensaje p {
   text-align: center;
+  width: 100%;
 }
 
 @media (max-width: 800px) {
@@ -303,32 +320,24 @@ main #mensaje p {
   main .contenedor {
     height: 100%;
     border: none;
+    flex-direction: column;
   }
   main .contenedor .bar-aside {
     width: 100%;
     margin: 0;
-    flex-direction: row;
   }
-  main .contenedor .bar-aside .div-genero {
-    width: 30%;
+  main .contenedor .seccion_productos {
     margin: 0px;
+    overflow-y: scroll;
   }
-  main .contenedor .bar-aside .div-navegador {
-    height: 100%;
-    width: 70%;
-    margin: 0px;
-  }
-  main .contenedor .bar-aside .div-navegador .nav {
-    width: 100%;
+  main .contenedor .seccion_productos .contenedor_p {
+    padding: 10px;
     align-items: center;
-    justify-content: center;
+    overflow: unset;
+    height: auto;
   }
-  main .contenedor .bar-aside .div-navegador .nav ul li {
-    text-align: center;
-  }
-  main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
-    width: 100px;
-    border-radius: 20px;
+  main .contenedor .seccion_productos .contenedor_p .producto {
+    margin: 25px 50px;
   }
 }
 footer {

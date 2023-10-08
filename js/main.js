@@ -17,13 +17,14 @@ window.addEventListener("load", () => {
     agregarAlHTML()
     recuperarProductos()
     mostrarFiltrado()
+    cntProductosCarrito()
 })
 
 //Declarar constantes
 const boton_carrito = document.querySelector("#boton-carrito")
 const barra_carrito = document.querySelector(".carrito")
 const boton_cierreCarrito = document.querySelector("#boton_cierre")
-const contenedor_productos = document.querySelector(".seccion_productos .contenedor")
+const contenedor_productos = document.querySelector(".seccion_productos .contenedor_p")
 const contenedorProductos = document.querySelector(".carrito .contenedorProductos")
 const mensaje = document.querySelector("#mensaje")
 const botonEliminar = document.querySelector(".eliminarProductos")
@@ -116,6 +117,8 @@ function agregarCarrito(evt){
         
     }
 
+    cntProductosCarrito()
+
  
 }
 function agregarAlHTML(){
@@ -155,6 +158,7 @@ function vaciarCarrito(){
     }
     articulosCarrito = []
     agregarStorage()
+    cntProductosCarrito()
 }
 
 function eliminarProducto(evt){
@@ -169,6 +173,7 @@ function eliminarProducto(evt){
             }
         })
     }
+    cntProductosCarrito()
 }
 
 function agregarStorage(){
@@ -195,15 +200,15 @@ function filtrarZapatillas(){
         if(woman == man){
           mensaje = "Zapatillas"
         }else if(man){
-            filtrarGenero("m")
-            mensaje = "Zapatillas de hombres"
+         filtrarGenero("m")
+         mensaje = "Zapatillas de hombres"
         }else if(woman){
-            filtrarGenero("f")
-            mensaje = "zapatillas de mujeres"
+         filtrarGenero("f")
+         mensaje = "Zapatillas de mujeres"
         }
     }
         
-    
+    console.log(mensaje)
     mostrarFiltrado(mensaje)
     
 }
@@ -334,43 +339,57 @@ function filtrarTodos(){
 function filtrarMujer(){
     woman = woman == false
     let mensaje = ""
+    console.log(woman)
+    console.log(man)
+    console.log(todo)
     if(woman && man == false) {
         filtrarGenero("f")
         mensaje = "Mujeres"
-
+        
     }else if (man && woman == false){
         mensaje = "Hombres"
        filtrarGenero("m")
     }
     else if(man == woman && todo){
           productoMostrar = productos
-          mensaje = "Todo"
+          mensaje = "Mujer y Hombre"
+          mostrarFiltrado(mensaje)
     }
     else if (man == woman && todo == false){
         if(zapatillasCheck){
           productoMostrar = filtrarProducto(productos, "zapatillas")
+          mensaje = "Zapatillas"
         } else if(remerasCheck){
             productoMostrar =   filtrarProducto(productos, "remera")
+            mensaje = "Remera"
         } else if(shortsCheck){
             productoMostrar =  filtrarProducto(productos, "short")
+            mensaje = "Shorts"
         } else if(pantalonesCheck){
             productoMostrar =  filtrarProducto(productos, "pantalon")
+            mensaje = "Pantalon"
+        }else{
+            productoMostrar = productos
+            mensaje = "Todos"
         }
+        }
+
+        mostrarFiltrado(mensaje) 
     }
-    mostrarFiltrado(mensaje)
-}
+
 
 function filtrarHombre(){
     man = man == false
     let mensaje = ""
+    console.log(woman)
+    console.log(man)
+    console.log(todo)
     if(man && woman == false) {
       filtrarGenero("m")
-        mensaje = "Hombre"
-   
+      mensaje = "Hombre"
     }else if (man == false && woman){
       filtrarGenero("f")
       mensaje = "Mujer"
-
     }else if(man == woman && todo){
         productoMostrar = productos
         mensaje = "Todo"
@@ -378,15 +397,25 @@ function filtrarHombre(){
     else if (man == woman && todo == false){
         if(zapatillasCheck){
             productoMostrar =   filtrarProducto(productos, "zapatillas")
+            mensaje = "Zapatillas"
         } else if(remerasCheck){
-            productoMostrar =  filtraProducto(productos, "remera")
+            productoMostrar =  filtrarProducto(productos, "remera")
+            mensaje = "Remera"
         } else if(shortsCheck){
             productoMostrar = filtrarProducto(productos, "short")
+            mensaje = "Shorts"
         } else if(pantalonesCheck){
             productoMostrar = filtrarProducto(productos, "pantalon")
+            mensaje = "Pantalones"
+        }else{
+            productoMostrar = productos
+            mensaje = "Todos"
         }
     }
+
     mostrarFiltrado(mensaje)
+
+    
 }
 
 
@@ -467,6 +496,17 @@ function agregarTitulo(mensaje) {
     div_titulo.classList.add("titulo")
     div_titulo.innerHTML = `<h1>${mensaje}</h1>`
     contenedor_productos.append(div_titulo)
+}
+
+function cntProductosCarrito(){
+    if(articulosCarrito.length != 0){
+        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
+        boton_carrito.querySelector("span").classList.remove("d-none")
+        
+    }else{
+        boton_carrito.querySelector("span").classList.add("d-none")
+    }
+   
 }
 
 
