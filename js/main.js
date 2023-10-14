@@ -36,11 +36,13 @@ const boton_filtrar_todos = document.querySelector("#boton-todos")
 const check_generoMujer = document.querySelector("#option-Mujer")
 const check_generoHombre = document.querySelector("#option-Hombre")
 const classProductos = document.querySelectorAll(".producto")
+const totalCarrito = document.querySelector("#totalCarrito")
+console.log(totalCarrito)
 
 //Event
 contenedor_productos.addEventListener("click", agregarCarrito)
 
-barra_carrito.addEventListener("click", eliminarProducto)
+barra_carrito.addEventListener("click", elimina_resta)
 
 botonEliminar.addEventListener("click", vaciarCarrito)
 
@@ -55,10 +57,8 @@ boton_filtrar_remeras.addEventListener("change", filtraRemeras)
 boton_filtrar_todos.addEventListener("change", filtrarTodos)
 
 check_generoMujer.addEventListener("change", filtrarMujer)
-check_generoHombre.addEventListener("change", filtrarHombre)
 
-console.log(woman)
-console.log(man)
+check_generoHombre.addEventListener("change", filtrarHombre)
 
 //Barra con la lista de productos
 boton_carrito.addEventListener("click", () =>{
@@ -69,7 +69,8 @@ boton_cierreCarrito.addEventListener("click", () =>{
 })
 
 
-//Funciones para agregar al carrito, dibujarlo y localStorage
+
+//Funciones para agregar, eliminar y vaciar el carrito y localStorage
 
 function agregarCarrito(evt){
 
@@ -79,13 +80,15 @@ function agregarCarrito(evt){
         let nombre_p = producto.querySelector(".nombreProducto").textContent
         let precio = producto.querySelector(".precioProducto").textContent
         let id = producto.getAttribute("data-id")
+        let subTotal = parseInt(eliminarString(precio.slice(1)))
         
        const p = {
             nombre: nombre_p,
             img: img,
             precio: precio,
             id: id, 
-            cantidad: 1
+            cantidad: 1,
+            subTotal: subTotal
         }
 
         if(articulosCarrito.some( prod => prod.id === p.id)) {
@@ -94,6 +97,11 @@ function agregarCarrito(evt){
                     let cantidad = item.cantidad
                     cantidad += 1
                     p.cantidad = cantidad
+
+                    //let precio_numero = eliminarString(p.precio.slice(1))
+                    let subTotal = p.subTotal * parseInt(p.cantidad)
+
+                    p.subTotal = subTotal
                     return p
                 } 
                 else{
@@ -110,10 +118,7 @@ function agregarCarrito(evt){
 
         agregarAlHTML()
 
-        mensaje.classList.toggle("mostrar")
-        setTimeout(() => {
-            mensaje.classList.toggle("mostrar")
-          }, 1500)
+        notificacion()
         
     }
 
@@ -121,36 +126,7 @@ function agregarCarrito(evt){
 
  
 }
-function agregarAlHTML(){
-    limpiarHTML()
-    agregarStorage()
-    articulosCarrito.forEach( (item) => {
-      let img = item.img
-      let nombre = item.nombre
-      let precio = item.precio
-      let cantidad = item.cantidad
-      
 
-      const div_producto = document.createElement("div")
-      div_producto.classList.add("productoSeleccionado")
-      div_producto.innerHTML = `<div class="d-flex flex-column">
-                                    <img src="${img}" alt="">
-                                    <p class="nombre">${nombre}</p>
-                                </div>                                 
-                                <p class="precio">${precio}</p>
-                                <p class="cantidad">${cantidad}</p>
-                                <button class="boton-eliminarProductoCarrito" data-id="${item.id}"><i class="fas fa-times" style="color: #f00000";></i></button>`
-       contenedorProductos.append(div_producto)                       
-     
-    })
-} 
-
-function limpiarHTML(){
-    while(contenedorProductos.firstChild){
-        contenedorProductos.removeChild(contenedorProductos.firstChild)
- }
-
-}
 
 function vaciarCarrito(){
     while(contenedorProductos.firstChild){
@@ -161,7 +137,7 @@ function vaciarCarrito(){
     cntProductosCarrito()
 }
 
-function eliminarProducto(evt){
+function elimina_resta(evt){
     if(evt.target.classList.contains("fas")){
         let idEliminar = (evt.target.parentElement.getAttribute("data-id"))
         articulosCarrito.forEach((item) => {
@@ -169,10 +145,46 @@ function eliminarProducto(evt){
                 let index = articulosCarrito.indexOf(item)
                 articulosCarrito.splice(index, 1)
                 console.log(articulosCarrito)
-                agregarAlHTML()
+              
             }
         })
     }
+    if(evt.target.classList.contains("btn_cantidad")){
+       let funcion = evt.target.getAttribute("data-funcion") 
+       console.log(funcion)
+       let idProductoModificar = evt.target.parentElement.parentElement.parentElement.parentElement.querySelector(".boton-eliminarProductoCarrito").getAttribute("data-id")
+       articulosCarrito.forEach( (item)=>{
+        if(item.id == idProductoModificar){
+            if(funcion == "resta"){
+                if(item.cantidad > 1) {
+                    
+                    item.cantidad = parseInt(item.cantidad) -1
+
+                    let precio_numero = eliminarString(item.precio.slice(1))
+                    let subTotal = precio_numero * parseInt(item.cantidad)
+
+                    item.subTotal = subTotal
+                }else{
+                    let index = articulosCarrito.indexOf(item)
+                    articulosCarrito.splice(index, 1)
+                    console.log(articulosCarrito)
+                }
+            } else{
+                item.cantidad = parseInt(item.cantidad) + 1
+                let precio_numero = eliminarString(item.precio.slice(1))
+                let subTotal = precio_numero * parseInt(item.cantidad)
+                item.subTotal = subTotal
+            }
+           
+        }
+       })
+
+       console.log(articulosCarrito)
+
+    }
+   
+
+    agregarAlHTML()
     cntProductosCarrito()
 }
 
@@ -181,6 +193,7 @@ function agregarStorage(){
 }
 
 //funciones de filtrado
+
 function filtrarZapatillas(){
     boton_filtrar_remeras.nextElementSibling.classList.remove("boton-seleccionado")
     boton_filtrar_pantalones.nextElementSibling.classList.remove("boton-seleccionado")
@@ -375,8 +388,7 @@ function filtrarMujer(){
         }
 
         mostrarFiltrado(mensaje) 
-    }
-
+}
 
 function filtrarHombre(){
     man = man == false
@@ -418,9 +430,69 @@ function filtrarHombre(){
     
 }
 
+function filtrarProducto(arr, str){
+    return arr.filter((item) => item.producto == str)
+}
+
+function filtrarGenero(str){
+    productoMostrar =  productoMostrar.filter((item) => item.genero == str)
+}
 
 
-//funcion para dibujar
+
+//funciones que introducen HTML
+function agregarAlHTML(){
+    limpiarHTML()
+    agregarStorage()
+    articulosCarrito.forEach( (item) => {
+      let img = item.img
+      let nombre = item.nombre
+      let precio = item.precio
+      let cantidad = item.cantidad
+      let subTotal = item.subTotal
+
+      const div_producto = document.createElement("div")
+      div_producto.classList.add("productoSeleccionado")
+      div_producto.setAttribute("subTotal", subTotal)
+      div_producto.innerHTML = `<div class="d-flex flex-column img-producto">
+                                    <img src="${img}" alt="">
+                                    <p class="nombre">${nombre}</p>
+                                </div> 
+
+                                <div class="div_info">
+                                    <div class="div_contenedor mb-1">
+                                        <p>Precio: </p>
+                                        <p class="precio">${precio}</p>
+                                    </div>   
+                                    
+                                    <div class="div_contenedor">
+                                        <p>Cant: </p>
+                                        <p class="cantidad">
+                                        <button data-funcion = "suma" class="me-2 btn_cantidad"> + </button>
+                                        ${cantidad} 
+                                        <button data-funcion = "resta" class="ms-2 btn_cantidad"> - </button>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="div_sub_total">
+                                    <p class="mb-3">Subtotal: </p>
+                                    <p>${subTotal}</p>
+                                </div>
+                               
+                                <button class="boton-eliminarProductoCarrito" data-id="${item.id}"><i class="fas fa-times" style="color: #f00000";></i></button>`
+       contenedorProductos.append(div_producto)                       
+     
+    })
+} 
+
+function limpiarHTML(){
+    while(contenedorProductos.firstChild){
+        contenedorProductos.removeChild(contenedorProductos.firstChild)
+ }
+
+}
+
 function mostrarFiltrado(mensaje){
     console.log(productoMostrar)
     borrarProductosMain()
@@ -459,6 +531,48 @@ function borrarProductosMain(){
     }
 }
 
+function agregarTitulo(mensaje) {
+    let div_titulo = document.createElement("div")
+    div_titulo.classList.add("titulo")
+    div_titulo.innerHTML = `<h1>${mensaje}</h1>`
+    contenedor_productos.append(div_titulo)
+}
+
+function notificacion(){
+    Toastify({
+        text: "Producto agregado",
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom",
+        position: "right", 
+        stopOnFocus: true,
+        style: {
+          background: "rgb(235, 93, 57)"
+        }
+      }).showToast();
+}
+
+function cntProductosCarrito(){
+    if(articulosCarrito.length != 0){
+       boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
+       boton_carrito.querySelector("span").classList.remove("d-none")
+
+       barra_carrito.querySelector(".total").innerText = "Total: " + calcularTotal()
+       barra_carrito.querySelector(".total").classList.remove("d-none")
+
+       totalCarrito.innerText = "Total: " + calcularTotal()
+       totalCarrito.classList.remove("d-none")
+    }else{
+        boton_carrito.querySelector("span").classList.add("d-none")
+        barra_carrito.querySelector(".total").classList.add("d-none")
+        totalCarrito.classList.add("d-none")
+    }
+   
+}
+
+
+
 //funcion para recuperar los productos
 function recuperarProductos(){
     classProductos.forEach((item) => {
@@ -483,30 +597,31 @@ function recuperarProductos(){
     })
 }
 
-function filtrarProducto(arr, str){
-    return arr.filter((item) => item.producto == str)
-}
 
-function filtrarGenero(str){
-    productoMostrar =  productoMostrar.filter((item) => item.genero == str)
-}
 
-function agregarTitulo(mensaje) {
-    let div_titulo = document.createElement("div")
-    div_titulo.classList.add("titulo")
-    div_titulo.innerHTML = `<h1>${mensaje}</h1>`
-    contenedor_productos.append(div_titulo)
-}
+//Funciones de ayuda
 
-function cntProductosCarrito(){
-    if(articulosCarrito.length != 0){
-        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
-        boton_carrito.querySelector("span").classList.remove("d-none")
-        
-    }else{
-        boton_carrito.querySelector("span").classList.add("d-none")
+function eliminarString(str){
+    let nuevoString = ""
+    for(let i = 0; i<=str.length; i++){
+        if(str[i] == "."){
+            nuevoString = str.slice(0, i) + str.slice(i + 1)
+        }
+       
     }
-   
+    return nuevoString
 }
+
+function calcularTotal(){
+    let total = 0
+        articulosCarrito.forEach((item) => {
+             total += item.subTotal
+        })
+
+        return total;
+
+        
+    }
+
 
 

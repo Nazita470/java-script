@@ -7,15 +7,14 @@
     <title>Antoni | Tienda oficial</title>
 
    <link rel="stylesheet" href="./css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <link rel="stylesheet" href="./css/styles.css">
-   <script src="https://kit.fontawesome.com/fa3a0fd4c5.js"  crossorigin="anonymous"></script>
-   <script src="js/main.js" defer></script>
-   <script src="./JS/bootstrap.bundle.min.js" defer></script>
-   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
 
+  <script src="./JS/bootstrap.bundle.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/fa3a0fd4c5.js"  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+  <script src="js/main.js" defer></script>
     
 </head>
 
@@ -27,6 +26,7 @@
       <div class="carrito">
         <button id="boton_cierre">  <i class="fas fa-times fa-2x1" > </i> </button>
         <div class="contenedorProductos"> </div>
+        <p class="total d-none"></p>
         <a class="eliminarProductos" href="#"> Eliminar todo</a>
       </div>
 
@@ -45,8 +45,11 @@
                       </span> 
                       <img id="img-carrito" src="./assets/cart.png" alt="carrito">
                     </button>
-
                     
+                  </li>
+
+                  <li>
+                    <p id="totalCarrito" class="d-none ms-4"></p>
                   </li>
               </ul>
             </div>
@@ -291,10 +294,6 @@
 
               </div>
           </section>
-
-          <div id="mensaje">
-            <p>Producto agregado</p>
-          </div>
         </section>  
       
     </main>

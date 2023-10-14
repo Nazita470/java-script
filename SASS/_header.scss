@@ -21,10 +21,19 @@ header{
         //min-width: 300px;
         z-index: 2;
         transition: all 500ms linear;
+        .total{
+            display: block;
+            text-align: end;
+            color: white;
+            padding-right: 20px;
+        }
         a{
             display: block;
             text-align: center;
             color: black;
+            &:hover{
+                color: white
+            }
         }
         button{
             border: none;
@@ -43,14 +52,14 @@ header{
             height: 100px;
             width: 100%;
             border: 1px solid black; 
+            box-shadow: 2px 2px 10px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             margin-bottom: 30px;
             overflow: hidden;
             padding: 10px;
             padding-bottom: 0px;
-            div{
+            .img-producto{
                 overflow: hidden;
                 width: 30%;
                 height: 100%;
@@ -67,18 +76,40 @@ header{
                    margin: 0px
                 }
             }
+
+            .div_info{
+                margin-left: 5px;
+                border-right: 1px solid black;
+                width: 30%;
+                height: 100%;
+
+                .div_contenedor{
+                   flex-grow: 1;
+                   button{
+                     color: gray;
+                     border: none;
+                   }
+                }   
+            }
+
+            .div_sub_total{
+                height: 100%;
+                margin: 0px 10px
+            }
+
     
            
-            .p{
-                font-size: 16px;
+            p{
+                font-size: 13px;
                 color: black;
                 margin: 0px;
-                margin-right: 20px;
+                //margin-right: 20px;
             }
 
             
            
         }
+        
     }
 
     .navbar{
@@ -94,6 +125,8 @@ header{
 
         ul{
             list-style: none;
+            width: 200px;
+            display: flex;
             li{
                 #boton-carrito{
                     position: relative;
@@ -112,6 +145,10 @@ header{
                         align-items: center;
                         justify-content: center;
                     }
+                }
+
+                #totalCarrito{
+                    font-size: 20px;
                 }
             }
         }
