@@ -15,8 +15,16 @@ let seleccionado = zapatillasCheck || remerasCheck || pantalonesCheck || shortsC
 window.addEventListener("load", () => {
     articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
     agregarAlHTML()
-    recuperarProductos()
-    mostrarFiltrado()
+
+    fetch("./data.json")
+    .then((res) => res.json())
+    .then((json) => {
+         mostrarFiltrado("", json)
+        recuperarProductos(json)
+    })
+    .catch((err) => err)
+   
+   
     cntProductosCarrito()
 })
 
@@ -94,9 +102,9 @@ function agregarCarrito(evt){
         if(articulosCarrito.some( prod => prod.id === p.id)) {
             const productosCorregidos = articulosCarrito.map( item => {
                 if(item.id == p.id){
-                    let cantidad = item.cantidad
-                    cantidad += 1
-                    p.cantidad = cantidad
+                    let p_cantidad = item.cantidad
+                    p_cantidad++
+                    p.cantidad = p_cantidad
 
                     //let precio_numero = eliminarString(p.precio.slice(1))
                     let subTotal = p.subTotal * parseInt(p.cantidad)
@@ -158,7 +166,7 @@ function elimina_resta(evt){
             if(funcion == "resta"){
                 if(item.cantidad > 1) {
                     
-                    item.cantidad = parseInt(item.cantidad) -1
+                    item.cantidad = parseInt(item.cantidad) - 1
 
                     let precio_numero = eliminarString(item.precio.slice(1))
                     let subTotal = precio_numero * parseInt(item.cantidad)
@@ -171,6 +179,7 @@ function elimina_resta(evt){
                 }
             } else{
                 item.cantidad = parseInt(item.cantidad) + 1
+                console.log(item.cantidad)
                 let precio_numero = eliminarString(item.precio.slice(1))
                 let subTotal = precio_numero * parseInt(item.cantidad)
                 item.subTotal = subTotal
@@ -222,7 +231,7 @@ function filtrarZapatillas(){
     }
         
     console.log(mensaje)
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
     
 }
 
@@ -253,7 +262,7 @@ function filtrarPantalones(){
         }
     }
 
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
 }
 
 function filtraRemeras(){
@@ -286,7 +295,7 @@ function filtraRemeras(){
         }
     }
 
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
 }
 
 function filtrarShort(){
@@ -316,7 +325,7 @@ function filtrarShort(){
         }
     }
 
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
 }
 
 function filtrarTodos(){
@@ -346,7 +355,7 @@ function filtrarTodos(){
          }
     }
 
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
 }
 
 function filtrarMujer(){
@@ -366,7 +375,7 @@ function filtrarMujer(){
     else if(man == woman && todo){
           productoMostrar = productos
           mensaje = "Mujer y Hombre"
-          mostrarFiltrado(mensaje)
+          mostrarFiltrado(mensaje, productoMostrar)
     }
     else if (man == woman && todo == false){
         if(zapatillasCheck){
@@ -387,7 +396,7 @@ function filtrarMujer(){
         }
         }
 
-        mostrarFiltrado(mensaje) 
+        mostrarFiltrado(mensaje, productoMostrar) 
 }
 
 function filtrarHombre(){
@@ -425,7 +434,7 @@ function filtrarHombre(){
         }
     }
 
-    mostrarFiltrado(mensaje)
+    mostrarFiltrado(mensaje, productoMostrar)
 
     
 }
@@ -493,7 +502,7 @@ function limpiarHTML(){
 
 }
 
-function mostrarFiltrado(mensaje){
+function mostrarFiltrado(mensaje, arr){
     console.log(productoMostrar)
     borrarProductosMain()
     
@@ -502,7 +511,7 @@ function mostrarFiltrado(mensaje){
     }else {
 
     }
-    productoMostrar.forEach((item) => {
+    arr.forEach((item) => {
         let div = document.createElement("div")
         div.classList.add("producto")
         div.setAttribute("producto", `${item.producto}`)
@@ -574,14 +583,14 @@ function cntProductosCarrito(){
 
 
 //funcion para recuperar los productos
-function recuperarProductos(){
-    classProductos.forEach((item) => {
-        let img = item.querySelector("img").src
-        let nombre_p = item.querySelector(".nombreProducto").textContent
-        let precio = item.querySelector(".precioProducto").textContent
-        let id = item.getAttribute("data-id")
-        let genero = item.getAttribute("genero")
-        let tipoProducto = item.getAttribute("producto")
+function recuperarProductos(arr){
+    arr.forEach((item) => {
+        let img = item.img
+        let nombre_p = item.nombre
+        let precio = item.precio
+        let id = item.id
+        let genero = item.genero
+        let tipoProducto = item.producto
 
         const p = {
             nombre: nombre_p,

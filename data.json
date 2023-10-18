@@ -1,0 +1,127 @@
+[
+    {
+        "producto": "remera",
+        "genero": "m",
+        "id": "1",
+        "img": "./assets/img/Hombres/remera_hombre_gris.jpg",
+        "nombre": "Remera",
+        "precio": "$10.000"
+    },
+    {
+        "producto": "remera",
+        "genero": "m",
+        "id": "2",
+        "img": "./assets/img/Hombres/remera_hombre_negra.jpg",
+        "nombre": "Remera negra",
+        "precio": "$11.000"
+    },
+    {
+        "producto": "remera",
+        "genero": "m",
+        "id": "3",
+        "img": "./assets/img/Hombres/remera_hombre_rosa.jpg",
+        "nombre": "Remera rosa",
+        "precio": "$9.500"
+    },
+    {
+        "producto": "remera",
+        "genero": "f",
+        "id": "4",
+        "img": "/assets/img/Mujeres/rsz_1remera-de-mujer-isela.jpg",
+        "nombre": "Remera isela",
+        "precio": "$10.000"
+    },
+    {
+        "producto": "remera",
+        "genero": "f",
+        "id": "5",
+        "img": "/assets/img/Mujeres/remera_mujer_blanca.jpg",
+        "nombre": "Remera blanca",
+        "precio": "$11.500"
+    },
+    {
+        "producto": "zapatillas",
+        "genero": "m",
+        "id": "6",
+        "img": "/assets/img/Hombres/zapatillas-de-hombre-bridger.jpg",
+        "nombre": "Zapatillas Bridger",
+        "precio": "$45.000"
+    },
+    {
+        
+        "producto": "zapatillas",
+        "genero": "f",
+        "id": "7",
+        "img": "/assets/img/Mujeres/zapatillas-de-mujer-impulse-v4.jpg",
+        "nombre": "Zapatillas impulse",
+        "precio": "$38.000"
+    },
+    {
+        "producto": "zapatillas",
+        "genero": "m",
+        "id": "8",
+        "img": "/assets/img/Hombres/zapatillas_n_hombre.jpg",
+        "nombre": "Zapatillas",
+        "precio": "$25.000"
+    },
+    {
+        "producto": "zapatillas",
+        "genero": "f",
+        "id": "9",
+        "img": "/assets/img/Mujeres/zapatillas_rosaBlanca_mujer.jpg",
+        "nombre": "Zapatillas",
+        "precio": "$34.000"
+    },
+
+    {
+        "producto": "pantalon",
+        "genero": "m",
+        "id": "10",
+        "img": "./assets/img/Hombres/pantalon-cargo-hombre.jpg",
+        "nombre": "Pantalon cargo",
+        "precio": "$18.000"
+    },
+    {
+        "producto": "pantalon",
+        "genero": "f",
+        "id": "11",
+        "img": "./assets/img/Mujeres/jean_mujer.png",
+        "nombre": "Jean",
+        "precio": "$15.000"
+    },
+    {
+        "producto": "short",
+        "genero": "m",
+        "id": "12",
+        "img": "./assets/img/Hombres/short-hombre.jpg",
+        "nombre": "Short",
+        "precio": "$6.500"
+    },
+
+    {
+        "producto": "short",
+        "genero": "f",
+        "id": "13",
+        "img": "./assets/img/Mujeres/short-jean-mujer.jpg",
+        "nombre": "Short",
+        "precio": "$8.500"
+    },
+
+    {
+        "producto": "pantalon",
+        "genero": "m",
+        "id": "14",
+        "img": "./assets/img/Hombres/images.jpg",
+        "nombre": "Pantalon cargo",
+        "precio": "$25.000"
+    },
+
+    {
+        "producto": "short",
+        "genero": "f",
+        "id": "15",
+        "img": "./assets/img/Mujeres/short-mujer.jpg",
+        "nombre": "Short",
+        "precio": "$4.500"
+    }
+]
