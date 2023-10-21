@@ -67,6 +67,8 @@ header .carrito .total {
   padding-right: 20px;
 }
 header .carrito #comprar {
+  text-decoration: none;
+  padding-top: 10px;
   width: 100%;
   height: 50px;
   border: 1px solid black;

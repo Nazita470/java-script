@@ -661,10 +661,6 @@ function calcularTotal(){
         
     }
 
-function alertPago( precio){
-   
-   
-}
 
 
 

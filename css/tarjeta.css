@@ -1,0 +1,159 @@
+main{
+    display: flex;
+    height: 100vh;
+}
+
+#volverAtras{
+    position: absolute;
+    margin: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.tarjetas-section{
+    background-image: url("../assets/img/cards/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+     color: white;
+     width: 450px;
+     position: relative;
+     right: 100px;
+     margin-bottom: 50px;
+}
+
+
+
+.card-front-info{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+.card-front-number{
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+    font-size: 40px;
+}
+
+.card-name-date{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-back{
+    position: relative;
+    width: 450px;
+}
+.card-back p{
+    position: absolute;
+    top: 110px;
+    right: 60px;
+}
+
+
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    
+}
+
+.datos-personales{
+    position: relative;
+    right: 50px;
+}
+#form .form-group{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#form .form-group label{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.form-group input{
+    width: 400px;
+    height: 40px;
+    border: 1px solid  rgb(221, 221, 221);
+    padding-left: 5px;
+}
+
+.form-group input:hover, .form-group input:focus{
+    border-color: rgb(47, 47, 221);
+    
+}
+
+.form-group input:focus{
+    border-color: rgb(47, 47, 221) ; 
+}
+
+.form-group .form-month, .form-group .form-year, .form-group #form-pin{
+    width: 50px;
+    text-align: center;
+}
+
+#form .form-group .label-auto{
+    width: auto;
+}
+
+#btn-confirmarCompra{
+    margin-top: 20px;
+    width: 400px;
+    height: 50px;
+    border-radius: 30px;
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.seccion-terminado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fuerte-texto, .texto-gris{
+    font-size: 40px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.texto-gris{
+    font-size: 20px;
+    color: gray;
+}
+
+.desaparece{
+    background-color: white !important;
+    border: none !important; 
+}
+
+.ancla{
+    text-decoration: none;
+    padding-top: 10px;
+    text-align: center;
+}
+
