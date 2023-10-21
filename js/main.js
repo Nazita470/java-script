@@ -45,10 +45,13 @@ const check_generoMujer = document.querySelector("#option-Mujer")
 const check_generoHombre = document.querySelector("#option-Hombre")
 const classProductos = document.querySelectorAll(".producto")
 const totalCarrito = document.querySelector("#totalCarrito")
+const btn_comprar = document.querySelector("#comprar")
 console.log(totalCarrito)
 
 //Event
 contenedor_productos.addEventListener("click", agregarCarrito)
+
+btn_comprar.addEventListener("click", comprar)
 
 barra_carrito.addEventListener("click", elimina_resta)
 
@@ -199,6 +202,25 @@ function elimina_resta(evt){
 
 function agregarStorage(){
     localStorage.setItem("Carrito", JSON.stringify(articulosCarrito))
+}
+
+//funcion para mostrar el alert 
+function comprar(){
+    const precio = calcularTotal()
+    Swal.fire({
+        title: 'Pago total $' + precio,
+        showDenyButton: true,
+        denyButtonText: `Cancel`,
+        html: ''
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Pago realizado', '', 'success')
+          articulosCarrito = []
+          agregarAlHTML()
+          cntProductosCarrito()
+        } 
+      })
 }
 
 //funciones de filtrado
@@ -572,10 +594,17 @@ function cntProductosCarrito(){
 
        totalCarrito.innerText = "Total: " + calcularTotal()
        totalCarrito.classList.remove("d-none")
+
+       console.log(document.querySelector("#comprar"))
+       document.querySelector("#comprar").classList.remove("d-none")
+
+
+
     }else{
         boton_carrito.querySelector("span").classList.add("d-none")
         barra_carrito.querySelector(".total").classList.add("d-none")
         totalCarrito.classList.add("d-none")
+        document.querySelector("#comprar").classList.add("d-none")
     }
    
 }
@@ -631,6 +660,11 @@ function calcularTotal(){
 
         
     }
+
+function alertPago( precio){
+   
+   
+}
 
 
 
