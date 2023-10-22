@@ -24,7 +24,7 @@
                     <img src="../assets/img/cards/card-logo.svg" alt="Logo de la tarjeta">
                     <p class="card-front-number">0000 0000 0000 0000</p>
                     <div class="card-name-date">
-                        <p class="card-front-name"> Nazareno Salvatierra </p>
+                        <p class="card-front-name">Name </p>
                         <p class="card-front-date"> 00/00</p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     
                     <div class="form-group">
                         <label for="number">Numero de trajeta</label>
-                        <input type="text" name="number" class="card-number" id="number" maxlength="16" placeholder="1234 5678 9123 000">
+                        <input type="text" name="number" class="card-number" id="number" maxlength="16" placeholder="123456789123000">
                     </div>
 
                     <div class="form-group">
@@ -98,9 +98,14 @@
                     <p class="texto-gris">Su compra fue realizada con exito</p>
                 </div>
 
-                <a href="../index.html" id="btn-confirmarCompra" class="ancla">Volver al menu</a>
+                <a href="../index.html?borrar=true" id="btn-confirmarCompra" class="ancla">Volver al menu</a>
                 
             </section>
+
+            <div class="d-none div-carga">
+                <img src="../assets/gif/icons8-carga.gif" alt="gif de carga">
+                <p class="fuerte-texto">Realizando compra...</p>
+            </div>
         </section>
        
 

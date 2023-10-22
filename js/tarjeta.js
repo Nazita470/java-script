@@ -92,14 +92,41 @@ function cambiarPin(){
 
 //button
 function comprar(){
-    forms.forEach((item) => {
+    console.log(!form_nombre.length)
+    if(!form_nombre.length){
+        form_nombre.value = form_nombre.getAttribute("placeholder")
+        cambiarNombre()
+    }if(!form_number.length){
+        form_number.value = form_number.getAttribute("placeholder")
+        cambiarNumber()
+    }if(!form_month.length){
+        form_month.value = "06"
+        cambiarMes()
+    }if( !form_year.length){
+         form_year.value = "23"
+         cambiarAño()
+    }if(!form_pin.length){
+        form_pin.value = form_pin.getAttribute("placeholder")
+        cambiarPin()
+    }
+
+
+   forms.forEach((item) => {
         item.classList.add("d-none")
     })
 
-    terminando.classList.remove("d-none")
-
     btn.classList.add("desaparece")
     btn.disabled = true
+
+    document.querySelector(".div-carga").classList.remove("d-none")
+
+    setTimeout(() => {
+        document.querySelector(".div-carga").classList.add("d-none")
+        terminando.classList.remove("d-none")
+    }, 3000)
+   
+
+   
 
     
 }

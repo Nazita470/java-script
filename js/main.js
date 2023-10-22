@@ -11,24 +11,12 @@ let todo = false
 let productoMostrar = []
 let seleccionado = zapatillasCheck || remerasCheck || pantalonesCheck || shortsCheck
 
-//Cargar productos cuando recarge la pagina
-window.addEventListener("load", () => {
-    articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
-    agregarAlHTML()
 
-    fetch("./data.json")
-    .then((res) => res.json())
-    .then((json) => {
-         mostrarFiltrado("", json)
-        recuperarProductos(json)
-    })
-    .catch((err) => err)
-   
-   
-    cntProductosCarrito()
-})
 
 //Declarar constantes
+const valor = window.location.search;
+const urlParams = new URLSearchParams(valor);
+let si_no = urlParams.get("borrar")
 const boton_carrito = document.querySelector("#boton-carrito")
 const barra_carrito = document.querySelector(".carrito")
 const boton_cierreCarrito = document.querySelector("#boton_cierre")
@@ -70,6 +58,31 @@ boton_filtrar_todos.addEventListener("change", filtrarTodos)
 check_generoMujer.addEventListener("change", filtrarMujer)
 
 check_generoHombre.addEventListener("change", filtrarHombre)
+
+
+
+//Cargar productos cuando recarge la pagina
+window.addEventListener("load", () => {
+    if(!si_no){
+        articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
+        agregarAlHTML()
+    }else{
+        vaciarCarrito()
+        location.href = "http://127.0.0.1:5501/index.html"
+        
+    }
+
+    fetch("./data.json")
+    .then((res) => res.json())
+    .then((json) => {
+        mostrarFiltrado("", json)
+        recuperarProductos(json)
+    })
+    .catch((err) => err)
+   
+   
+    cntProductosCarrito()
+})
 
 //Barra con la lista de productos
 boton_carrito.addEventListener("click", () =>{
