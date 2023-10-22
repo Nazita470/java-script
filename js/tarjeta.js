@@ -133,8 +133,7 @@ function comprar(){
         articulosCarrito = [];
         agregarStorage()
         cntProductosCarrito()
-        volver()
-        
+        volver()      
     })
     
 }
