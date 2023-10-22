@@ -90,14 +90,16 @@ boton_cierreCarrito.addEventListener("click", () =>{
 //Funciones para agregar, eliminar y vaciar el carrito y localStorage
 
 async function recuperarDatos(){
-    const peticion = await fetch("./data.json", {
+    const peticion = await fetch("./data.json",  {
         method: 'GET',
-        headers: new Headers({ 'Content-type': 'data/json'}),
-        mode: 'no-cors'
+        headers: new Headers({ 'Content-type': 'application/json'}),
+        mode: "no-cors",
+
     })
     if(peticion.ok){
         console.log(peticion)
         const json = await peticion.json()
+        console.log(json)
         mostrarFiltrado("", json)
         cntProductosCarrito()
     }else{
@@ -125,28 +127,31 @@ function agregarCarrito(evt){
             cantidad: 1,
             subTotal: subTotal
         }
-
-        if(articulosCarrito.some( prod => prod.id === p.id)) {
-            const productosCorregidos = articulosCarrito.map( item => {
-                if(item.id == p.id){
-                    let p_cantidad = item.cantidad
-                    p_cantidad++
-                    p.cantidad = p_cantidad
-
-                    //let precio_numero = eliminarString(p.precio.slice(1))
-                    let subTotal = p.subTotal * parseInt(p.cantidad)
-
-                    p.subTotal = subTotal
-                    return p
-                } 
-                else{
-                    return item
-                }    
+        if(articulosCarrito){
+            if(articulosCarrito.some( prod => prod.id === p.id)) {
+                const productosCorregidos = articulosCarrito.map( item => {
+                    if(item.id == p.id){
+                        let p_cantidad = item.cantidad
+                        p_cantidad++
+                        p.cantidad = p_cantidad
+    
+                        //let precio_numero = eliminarString(p.precio.slice(1))
+                        let subTotal = p.subTotal * parseInt(p.cantidad)
+    
+                        p.subTotal = subTotal
+                        return p
+                    } 
+                    else{
+                        return item
+                    }    
+                }
+              )
+              articulosCarrito = productosCorregidos
+    
             }
-          )
-          articulosCarrito = productosCorregidos
+        }
 
-        } else {
+        else {
             articulosCarrito.push(p);
         }
         console.log(articulosCarrito)
@@ -612,7 +617,7 @@ function notificacion(){
 }
 
 function cntProductosCarrito(){
-    if(articulosCarrito){
+    if(articulosCarrito.length != 0){
        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
        boton_carrito.querySelector("span").classList.remove("d-none")
 
