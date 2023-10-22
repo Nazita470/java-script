@@ -17,9 +17,8 @@ const month_card = document.querySelector(".card-front-date")
 const pin_card = document.querySelector(".card-pin")
 const btn = document.querySelector("#btn-confirmarCompra")
 const forms = document.querySelectorAll("#form")
-console.log(forms)
 const terminando = document.querySelector(".seccion-terminado")
-console.log(terminando)
+const ancla = document.querySelector("#volverAtras")
 
 //eventos
 
@@ -92,20 +91,23 @@ function cambiarPin(){
 
 //button
 function comprar(){
-    console.log(!form_nombre.length)
-    if(!form_nombre.length){
+    console.log(form_nombre.value.length )
+    if(form_nombre.value.length == 0){
         form_nombre.value = form_nombre.getAttribute("placeholder")
         cambiarNombre()
-    }if(!form_number.length){
+    }
+    
+    
+    if(form_number.value.length == 0){
         form_number.value = form_number.getAttribute("placeholder")
         cambiarNumber()
-    }if(!form_month.length){
+    }if(form_month.value.length == 0){
         form_month.value = "06"
         cambiarMes()
-    }if( !form_year.length){
+    }if(form_year.value.length == 0){
          form_year.value = "23"
          cambiarAño()
-    }if(!form_pin.length){
+    }if(form_pin.value.length == 0){
         form_pin.value = form_pin.getAttribute("placeholder")
         cambiarPin()
     }
@@ -120,9 +122,14 @@ function comprar(){
 
     document.querySelector(".div-carga").classList.remove("d-none")
 
+    ancla.removeAttribute("href")
+    ancla.setAttribute("href", "#")
+
     setTimeout(() => {
         document.querySelector(".div-carga").classList.add("d-none")
         terminando.classList.remove("d-none")
+        ancla.removeAttribute("href")
+        ancla.setAttribute("href", "../index.html")
     }, 3000)
    
 

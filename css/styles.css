@@ -300,14 +300,23 @@ main .contenedor .seccion_productos .contenedor_p .producto {
   border: 1px solid black;
   margin: 0px 100px;
   margin-bottom: 30px;
+  transition: 2s img;
+}
+main .contenedor .seccion_productos .contenedor_p .producto:hover img {
+  transform: scale(1.3);
 }
 main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen {
   height: 60%;
+  overflow: hidden;
 }
 main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: 2s all;
+}
+main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen:hover {
+  transform: scale(1.3);
 }
 main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto {
   height: 40%;

@@ -16,7 +16,7 @@
 </head>
 <body>
     <main>
-        <a id="volverAtras" href="../index.html"> <i class="fas fa-long-arrow-alt-left me-1"></i> Volver atras</a>
+        <a id="volverAtras" href="../index.html" aria-disabled="true" disabled> <i class="fas fa-long-arrow-alt-left me-1"></i> Volver atras</a>
         <section class="tarjetas-section">
             <div class="card-front">
                 <img src="../assets/img/cards/bg-card-front.png" alt="imagen simulando una tarjeta">
@@ -63,12 +63,12 @@
                 <h1>Datos de la tarjeta</h1>
                     <div class="form-group">
                         <label for="name">Nombre que indica la tarjeta</label>
-                        <input id="name" name="name" class="form-name" type="text" placeholder="Nazareno Salvatierra" autocomplete="additional-name">
+                        <input id="name" name="name" class="form-name" type="text" placeholder="Nazareno Salvatierra" autocomplete="additional-name" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="number">Numero de trajeta</label>
-                        <input type="text" name="number" class="card-number" id="number" maxlength="16" placeholder="123456789123000">
+                        <input type="text" name="number" class="card-number" id="number" maxlength="16" minlength="16" placeholder="123456789123000" required>
                     </div>
 
                     <div class="form-group">
@@ -76,10 +76,10 @@
                             <label for="month" class="label-auto me-4">Vencimiento</label>
                             <label for="form-pin" class="label-auto">PIN</label>
                         </div>
-                        <input type="text" class="form-month" name="month" id="month" maxlength="2" placeholder="MM">
-                        <input type="text" class="form-year" id="year" maxlength="2" placeholder="YY">
+                        <input type="text" class="form-month" name="month" id="month" maxlength="2" minlength="2" placeholder="MM">
+                        <input type="text" class="form-year" id="year" maxlength="2" minlength="2" placeholder="YY">
     
-                        <input type="text" placeholder="123" name="form-pin" maxlength="3" id="form-pin" class="form-pin ms-4">
+                        <input type="text" placeholder="123" name="form-pin" maxlength="3" minlength="3" id="form-pin" class="form-pin ms-4">
                     </div>
 
                     
