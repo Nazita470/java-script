@@ -43,7 +43,7 @@
         "producto": "zapatillas",
         "genero": "m",
         "id": "6",
-        "img": "/assets/img/Hombres/zapatillas-de-hombre-bridger.jpg",
+        "img": "./assets/img/Hombres/zapatillas-de-hombre-bridger.jpg",
         "nombre": "Zapatillas Bridger",
         "precio": "$45.000"
     },
@@ -52,7 +52,7 @@
         "producto": "zapatillas",
         "genero": "f",
         "id": "7",
-        "img": "/assets/img/Mujeres/zapatillas-de-mujer-impulse-v4.jpg",
+        "img": "./assets/img/Mujeres/zapatillas-de-mujer-impulse-v4.jpg",
         "nombre": "Zapatillas impulse",
         "precio": "$38.000"
     },
@@ -60,7 +60,7 @@
         "producto": "zapatillas",
         "genero": "m",
         "id": "8",
-        "img": "/assets/img/Hombres/zapatillas_n_hombre.jpg",
+        "img": "./assets/img/Hombres/zapatillas_n_hombre.jpg",
         "nombre": "Zapatillas",
         "precio": "$25.000"
     },
@@ -68,7 +68,7 @@
         "producto": "zapatillas",
         "genero": "f",
         "id": "9",
-        "img": "/assets/img/Mujeres/zapatillas_rosaBlanca_mujer.jpg",
+        "img": "./assets/img/Mujeres/zapatillas_rosaBlanca_mujer.jpg",
         "nombre": "Zapatillas",
         "precio": "$34.000"
     },
