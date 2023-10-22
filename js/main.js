@@ -488,46 +488,49 @@ function filtrarGenero(str){
 function agregarAlHTML(){
     limpiarHTML()
     agregarStorage()
-    articulosCarrito.forEach( (item) => {
-      let img = item.img
-      let nombre = item.nombre
-      let precio = item.precio
-      let cantidad = item.cantidad
-      let subTotal = item.subTotal
-
-      const div_producto = document.createElement("div")
-      div_producto.classList.add("productoSeleccionado")
-      div_producto.setAttribute("subTotal", subTotal)
-      div_producto.innerHTML = `<div class="d-flex flex-column img-producto">
-                                    <img src="${img}" alt="">
-                                    <p class="nombre">${nombre}</p>
-                                </div> 
-
-                                <div class="div_info">
-                                    <div class="div_contenedor mb-1">
-                                        <p>Precio: </p>
-                                        <p class="precio">${precio}</p>
-                                    </div>   
-                                    
-                                    <div class="div_contenedor">
-                                        <p>Cant: </p>
-                                        <p class="cantidad">
-                                        <button data-funcion = "suma" class="me-2 btn_cantidad"> + </button>
-                                        ${cantidad} 
-                                        <button data-funcion = "resta" class="ms-2 btn_cantidad"> - </button>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="div_sub_total">
-                                    <p class="mb-3">Subtotal: </p>
-                                    <p>${subTotal}</p>
-                                </div>
-                               
-                                <button class="boton-eliminarProductoCarrito" data-id="${item.id}"><i class="fas fa-times" style="color: #f00000";></i></button>`
-       contenedorProductos.append(div_producto)                       
-     
-    })
+    if(articulosCarrito){
+        articulosCarrito.forEach( (item) => {
+            let img = item.img
+            let nombre = item.nombre
+            let precio = item.precio
+            let cantidad = item.cantidad
+            let subTotal = item.subTotal
+      
+            const div_producto = document.createElement("div")
+            div_producto.classList.add("productoSeleccionado")
+            div_producto.setAttribute("subTotal", subTotal)
+            div_producto.innerHTML = `<div class="d-flex flex-column img-producto">
+                                          <img src="${img}" alt="">
+                                          <p class="nombre">${nombre}</p>
+                                      </div> 
+      
+                                      <div class="div_info">
+                                          <div class="div_contenedor mb-1">
+                                              <p>Precio: </p>
+                                              <p class="precio">${precio}</p>
+                                          </div>   
+                                          
+                                          <div class="div_contenedor">
+                                              <p>Cant: </p>
+                                              <p class="cantidad">
+                                              <button data-funcion = "suma" class="me-2 btn_cantidad"> + </button>
+                                              ${cantidad} 
+                                              <button data-funcion = "resta" class="ms-2 btn_cantidad"> - </button>
+                                              </p>
+                                          </div>
+                                      </div>
+      
+                                      <div class="div_sub_total">
+                                          <p class="mb-3">Subtotal: </p>
+                                          <p>${subTotal}</p>
+                                      </div>
+                                     
+                                      <button class="boton-eliminarProductoCarrito" data-id="${item.id}"><i class="fas fa-times" style="color: #f00000";></i></button>`
+             contenedorProductos.append(div_producto)                       
+           
+          })
+    }
+    
 } 
 
 function limpiarHTML(){
