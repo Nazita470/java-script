@@ -27,7 +27,7 @@
         "producto": "remera",
         "genero": "f",
         "id": "4",
-        "img": "/assets/img/Mujeres/rsz_1remera-de-mujer-isela.jpg",
+        "img": "./assets/img/Mujeres/rsz_1remera-de-mujer-isela.jpg",
         "nombre": "Remera isela",
         "precio": "$10.000"
     },
@@ -35,7 +35,7 @@
         "producto": "remera",
         "genero": "f",
         "id": "5",
-        "img": "/assets/img/Mujeres/remera_mujer_blanca.jpg",
+        "img": "./assets/img/Mujeres/remera_mujer_blanca.jpg",
         "nombre": "Remera blanca",
         "precio": "$11.500"
     },

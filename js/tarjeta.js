@@ -92,7 +92,6 @@ function cambiarPin(){
 
 //button
 function comprar(){
-    console.log(form_nombre.value.length )
     if(form_nombre.value.length == 0){
         form_nombre.value = form_nombre.getAttribute("placeholder")
         cambiarNombre()

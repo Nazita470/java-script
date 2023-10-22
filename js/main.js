@@ -37,7 +37,6 @@ const totalCarrito = document.querySelector("#totalCarrito")
 const btn_comprar = document.querySelector("#comprar")
 const seccionPrincipal = document.querySelector("#seccion-principal")
 const seccionTarjetas = document.querySelector("#seccion-Tarjetas")
-console.log(seccionTarjetas)
 
 //Event
 contenedor_productos.addEventListener("click", agregarCarrito)
@@ -100,16 +99,16 @@ async function recuperarDatos(){
 
     })
     if(peticion.ok){
-        console.log(peticion)
         const json = await peticion.json()
-        console.log(json)
         mostrarFiltrado("", json)
         recuperarProductos(json)
         cntProductosCarrito()
-        console.log(productos)
     }else{
-        console.log(peticion)
-        console.log("Esta mal la peticion")
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se pudo conectar con el json!',
+          })
     }
 }
 
@@ -117,7 +116,6 @@ async function recuperarDatos(){
 function agregarCarrito(evt){
 
     if(evt.target.classList.contains("botonAgregar")){
-        console.log("click")
         const producto = evt.target.parentElement.parentElement
         let img = producto.querySelector("img").src
         let nombre_p = producto.querySelector(".nombreProducto").textContent
@@ -159,7 +157,6 @@ function agregarCarrito(evt){
         else {
             articulosCarrito.push(p);
         }
-        console.log(articulosCarrito)
 
         agregarAlHTML()
 
@@ -188,15 +185,12 @@ function elimina_resta(evt){
         articulosCarrito.forEach((item) => {
             if(item.id == idEliminar){
                 let index = articulosCarrito.indexOf(item)
-                articulosCarrito.splice(index, 1)
-                console.log(articulosCarrito)
-              
+                articulosCarrito.splice(index, 1)                  
             }
         })
     }
     if(evt.target.classList.contains("btn_cantidad")){
        let funcion = evt.target.getAttribute("data-funcion") 
-       console.log(funcion)
        let idProductoModificar = evt.target.parentElement.parentElement.parentElement.parentElement.querySelector(".boton-eliminarProductoCarrito").getAttribute("data-id")
        articulosCarrito.forEach( (item)=>{
         if(item.id == idProductoModificar){
@@ -212,11 +206,10 @@ function elimina_resta(evt){
                 }else{
                     let index = articulosCarrito.indexOf(item)
                     articulosCarrito.splice(index, 1)
-                    console.log(articulosCarrito)
                 }
             } else{
                 item.cantidad = parseInt(item.cantidad) + 1
-                console.log(item.cantidad)
+                
                 let precio_numero = eliminarString(item.precio.slice(1))
                 let subTotal = precio_numero * parseInt(item.cantidad)
                 item.subTotal = subTotal
@@ -225,7 +218,7 @@ function elimina_resta(evt){
         }
        })
 
-       console.log(articulosCarrito)
+      
 
     }
    
@@ -267,7 +260,7 @@ function filtrarZapatillas(){
         }
     }
         
-    console.log(mensaje)
+   
     mostrarFiltrado(mensaje, productoMostrar)
     
 }
@@ -317,10 +310,8 @@ function filtraRemeras(){
     remerasCheck = true
 
 
-    console.log("remera: " + remerasCheck)
     if(remerasCheck) {
         productoMostrar = filtrarProducto(productos, "remera")
-        console.log(productoMostrar)
         if(woman == man){
           mensaje = "Remeras"
         }else if(man){
@@ -398,9 +389,6 @@ function filtrarTodos(){
 function filtrarMujer(){
     woman = woman == false
     let mensaje = ""
-    console.log(woman)
-    console.log(man)
-    console.log(todo)
     if(woman && man == false) {
         filtrarGenero("f")
         mensaje = "Mujeres"
@@ -439,9 +427,6 @@ function filtrarMujer(){
 function filtrarHombre(){
     man = man == false
     let mensaje = ""
-    console.log(woman)
-    console.log(man)
-    console.log(todo)
     if(man && woman == false) {
       filtrarGenero("m")
       mensaje = "Hombre"
@@ -543,7 +528,6 @@ function limpiarHTML(){
 }
 
 function mostrarFiltrado(mensaje, array){
-    console.log(productoMostrar)
     borrarProductosMain()
     
     if(mensaje){
@@ -613,7 +597,6 @@ function cntProductosCarrito(){
        totalCarrito.innerText = "Total: " + calcularTotal()
        totalCarrito.classList.remove("d-none")
 
-       console.log(document.querySelector("#comprar"))
        document.querySelector("#comprar").classList.remove("d-none")
 
 
