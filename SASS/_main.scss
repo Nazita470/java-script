@@ -1,178 +1,181 @@
-main{
-   width: 100%;
-   overflow: hidden;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-grow: 1;
-  .contenedor{
-      overflow: hidden;
-   
+#seccion-principal{
+   main{
       width: 100%;
-      border: 1px solid black;
-      height: 100%;
-
-   .bar-aside{
-      width: 10%;
-      min-width: 200px;
-      z-index: 1;
-      background-color: $color-principal;
-      border: none;
-      flex-direction: column;
-      height: 100%;
-        
-      .div-genero{
-         margin-top: 30px;
-         .check{
-            display: none;
-            &:checked + .btn1{
-                  background-color: white;
-                  border: 1px solid black;
-            }             
-            }
-         
-         .btn1 {
-            background-color: $color-principal;
-            border-radius: 50%;
-            padding: 5px;
-            &:hover{
-               background-color: white;
-            }
-      }
-      }
-        
-      .div-navegador{
-         margin-top: 30px;
-         height: 50%;
-         .nav{
-            ul{
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            list-style: none;
-            li{
-               width: 100;
-               list-style: none;
-
-               input[type="radio"]{
-                  display: none;
-               }
-               .boton-nav{
-                  width: 100%;
-                  padding-right: 10px;
-                  text-align: center;
-                  height: 50px;
-                  background-color: $color-principal;
-                  border: none;
-                  color: white;
-                  &:hover{
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+     .contenedor{
+         overflow: hidden;
+      
+         width: 100%;
+         border: 1px solid black;
+         height: 100%;
+   
+      .bar-aside{
+         width: 10%;
+         min-width: 200px;
+         z-index: 1;
+         background-color: $color-principal;
+         border: none;
+         flex-direction: column;
+         height: 100%;
+           
+         .div-genero{
+            margin-top: 30px;
+            .check{
+               display: none;
+               &:checked + .btn1{
                      background-color: white;
-                     color: black;
-                     border: 1px solid white;
-                     border-radius: 30px 0px 0px 30px;
-                  }
-
-                  
-
+                     border: 1px solid black;
+               }             
                }
-            }
+            
+            .btn1 {
+               background-color: $color-principal;
+               border-radius: 50%;
+               padding: 5px;
+               &:hover{
+                  background-color: white;
+               }
+         }
          }
            
-       }
-   }
-        
-       
-     }
-     
-     .seccion_productos{
-      flex-grow: 1;
-      .contenedor_p{
-         overflow-y: scroll;
-         margin-left: 20px;
-         border : none;
-         background-color: white;
-         margin: 0;;
-         flex-wrap: wrap;
-         display: flex;
-         flex-grow: 1;
-         padding: 50px;
-         height: 100%;
-
-         .titulo{
-               display: block;
-               height: 70px;
-               width: 100%;
-               margin-bottom: 30px;
-               padding-left: 100px;
-               h1{
-                  font-size: 50px;
-                  font-weight: bold;
-               }
-         }
-
-         .producto{
-               width: 300px;
-               height: 500px;
-               border: 1px solid black;
-               margin: 0px 100px;
-               margin-bottom: 30px;
-               transition: 2s img;
-               &:hover{
-                  img{
-                     transform: scale(1.3);
+         .div-navegador{
+            margin-top: 30px;
+            height: 50%;
+            .nav{
+               ul{
+               text-decoration: none;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-evenly;
+               list-style: none;
+               li{
+                  width: 100;
+                  list-style: none;
+   
+                  input[type="radio"]{
+                     display: none;
+                  }
+                  .boton-nav{
+                     width: 100%;
+                     padding-right: 10px;
+                     text-align: center;
+                     height: 50px;
+                     background-color: $color-principal;
+                     border: none;
+                     color: white;
+                     &:hover{
+                        background-color: white;
+                        color: black;
+                        border: 1px solid white;
+                        border-radius: 30px 0px 0px 30px;
+                     }
+   
+                     
+   
                   }
                }
-               .seccion_imagen{
-                  height: 60%;
-                  overflow: hidden;
-                  .imagen{
-                     object-fit: cover;
-                     width: 100%;
-                     height: 100%;
-                     transition: 2s all;
-                     &:hover{
+            }
+              
+          }
+      }
+           
+          
+        }
+        
+        .seccion_productos{
+         flex-grow: 1;
+         .contenedor_p{
+            overflow-y: scroll;
+            margin-left: 20px;
+            border : none;
+            background-color: white;
+            margin: 0;;
+            flex-wrap: wrap;
+            display: flex;
+            flex-grow: 1;
+            padding: 50px;
+            height: 100%;
+   
+            .titulo{
+                  display: block;
+                  height: 70px;
+                  width: 100%;
+                  margin-bottom: 30px;
+                  padding-left: 100px;
+                  h1{
+                     font-size: 50px;
+                     font-weight: bold;
+                  }
+            }
+   
+            .producto{
+                  width: 300px;
+                  height: 500px;
+                  border: 1px solid black;
+                  margin: 0px 100px;
+                  margin-bottom: 30px;
+                  transition: 2s img;
+                  &:hover{
+                     img{
                         transform: scale(1.3);
                      }
                   }
-               }
-   
-               .seccion_nombreProducto{
-                  height: 40%;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-evenly;
-                  padding: 10px;
-                  .nombreProducto{
-                     font-size: 30px;
-                     font-family: $letra-principal;
-                     text-align: center;
-                  }
-   
-                  .precioProducto{
-                     font-size: 20px;
-                     text-align: center;
-                  }
-   
-                  .botonAgregar{
-                     height: 50px;
-                     background-color: $color-principal;
-                     color: white;
-                     border-radius: 30px;
-                     width: 100%;
-                     &:hover{
-                        border: 2px solid black;
+                  .seccion_imagen{
+                     height: 60%;
+                     overflow: hidden;
+                     .imagen{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        transition: 2s all;
+                        &:hover{
+                           transform: scale(1.3);
+                        }
                      }
                   }
-               }   
-               
+      
+                  .seccion_nombreProducto{
+                     height: 40%;
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: space-evenly;
+                     padding: 10px;
+                     .nombreProducto{
+                        font-size: 30px;
+                        font-family: $letra-principal;
+                        text-align: center;
+                     }
+      
+                     .precioProducto{
+                        font-size: 20px;
+                        text-align: center;
+                     }
+      
+                     .botonAgregar{
+                        height: 50px;
+                        background-color: $color-principal;
+                        color: white;
+                        border-radius: 30px;
+                        width: 100%;
+                        &:hover{
+                           border: 2px solid black;
+                        }
+                     }
+                  }   
+                  
+            }
+            
          }
-         
+       
+        }
       }
-    
-     }
    }
 }
+
       
      
 

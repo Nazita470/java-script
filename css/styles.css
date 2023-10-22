@@ -68,7 +68,6 @@ header .carrito .total {
 }
 header .carrito #comprar {
   text-decoration: none;
-  padding-top: 10px;
   width: 100%;
   height: 50px;
   border: 1px solid black;
@@ -194,7 +193,7 @@ header .navbar ul li #totalCarrito {
     border-bottom: 1px solid white;
   }
 }
-main {
+#seccion-principal main {
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -202,13 +201,13 @@ main {
   align-items: center;
   flex-grow: 1;
 }
-main .contenedor {
+#seccion-principal main .contenedor {
   overflow: hidden;
   width: 100%;
   border: 1px solid black;
   height: 100%;
 }
-main .contenedor .bar-aside {
+#seccion-principal main .contenedor .bar-aside {
   width: 10%;
   min-width: 200px;
   z-index: 1;
@@ -217,43 +216,43 @@ main .contenedor .bar-aside {
   flex-direction: column;
   height: 100%;
 }
-main .contenedor .bar-aside .div-genero {
+#seccion-principal main .contenedor .bar-aside .div-genero {
   margin-top: 30px;
 }
-main .contenedor .bar-aside .div-genero .check {
+#seccion-principal main .contenedor .bar-aside .div-genero .check {
   display: none;
 }
-main .contenedor .bar-aside .div-genero .check:checked + .btn1 {
+#seccion-principal main .contenedor .bar-aside .div-genero .check:checked + .btn1 {
   background-color: white;
   border: 1px solid black;
 }
-main .contenedor .bar-aside .div-genero .btn1 {
+#seccion-principal main .contenedor .bar-aside .div-genero .btn1 {
   background-color: rgb(235, 93, 57);
   border-radius: 50%;
   padding: 5px;
 }
-main .contenedor .bar-aside .div-genero .btn1:hover {
+#seccion-principal main .contenedor .bar-aside .div-genero .btn1:hover {
   background-color: white;
 }
-main .contenedor .bar-aside .div-navegador {
+#seccion-principal main .contenedor .bar-aside .div-navegador {
   margin-top: 30px;
   height: 50%;
 }
-main .contenedor .bar-aside .div-navegador .nav ul {
+#seccion-principal main .contenedor .bar-aside .div-navegador .nav ul {
   text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   list-style: none;
 }
-main .contenedor .bar-aside .div-navegador .nav ul li {
+#seccion-principal main .contenedor .bar-aside .div-navegador .nav ul li {
   width: 100;
   list-style: none;
 }
-main .contenedor .bar-aside .div-navegador .nav ul li input[type=radio] {
+#seccion-principal main .contenedor .bar-aside .div-navegador .nav ul li input[type=radio] {
   display: none;
 }
-main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
+#seccion-principal main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
   width: 100%;
   padding-right: 10px;
   text-align: center;
@@ -262,16 +261,16 @@ main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav {
   border: none;
   color: white;
 }
-main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav:hover {
+#seccion-principal main .contenedor .bar-aside .div-navegador .nav ul li .boton-nav:hover {
   background-color: white;
   color: black;
   border: 1px solid white;
   border-radius: 30px 0px 0px 30px;
 }
-main .contenedor .seccion_productos {
+#seccion-principal main .contenedor .seccion_productos {
   flex-grow: 1;
 }
-main .contenedor .seccion_productos .contenedor_p {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p {
   overflow-y: scroll;
   margin-left: 20px;
   border: none;
@@ -283,18 +282,18 @@ main .contenedor .seccion_productos .contenedor_p {
   padding: 50px;
   height: 100%;
 }
-main .contenedor .seccion_productos .contenedor_p .titulo {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .titulo {
   display: block;
   height: 70px;
   width: 100%;
   margin-bottom: 30px;
   padding-left: 100px;
 }
-main .contenedor .seccion_productos .contenedor_p .titulo h1 {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .titulo h1 {
   font-size: 50px;
   font-weight: bold;
 }
-main .contenedor .seccion_productos .contenedor_p .producto {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto {
   width: 300px;
   height: 500px;
   border: 1px solid black;
@@ -302,46 +301,46 @@ main .contenedor .seccion_productos .contenedor_p .producto {
   margin-bottom: 30px;
   transition: 2s img;
 }
-main .contenedor .seccion_productos .contenedor_p .producto:hover img {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto:hover img {
   transform: scale(1.3);
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen {
   height: 60%;
   overflow: hidden;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen {
   object-fit: cover;
   width: 100%;
   height: 100%;
   transition: 2s all;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen:hover {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_imagen .imagen:hover {
   transform: scale(1.3);
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto {
   height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 10px;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .nombreProducto {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .nombreProducto {
   font-size: 30px;
   font-family: "Roboto", sans-serif;
   text-align: center;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .precioProducto {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .precioProducto {
   font-size: 20px;
   text-align: center;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar {
   height: 50px;
   background-color: rgb(235, 93, 57);
   color: white;
   border-radius: 30px;
   width: 100%;
 }
-main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar:hover {
+#seccion-principal main .contenedor .seccion_productos .contenedor_p .producto .seccion_nombreProducto .botonAgregar:hover {
   border: 2px solid black;
 }
 

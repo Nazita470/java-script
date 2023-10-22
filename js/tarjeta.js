@@ -18,7 +18,7 @@ const pin_card = document.querySelector(".card-pin")
 const btn = document.querySelector("#btn-confirmarCompra")
 const forms = document.querySelectorAll("#form")
 const terminando = document.querySelector(".seccion-terminado")
-const ancla = document.querySelector("#volverAtras")
+const btn_atras = document.querySelector("#volverAtras")
 
 //eventos
 
@@ -28,6 +28,7 @@ form_month.addEventListener("input", cambiarMes)
 form_year.addEventListener("input", cambiarAño)
 form_pin.addEventListener("input", cambiarPin);
 btn.addEventListener("click", comprar)
+btn_atras.addEventListener("click", volver)
 
 
 //Funciones
@@ -96,8 +97,6 @@ function comprar(){
         form_nombre.value = form_nombre.getAttribute("placeholder")
         cambiarNombre()
     }
-    
-    
     if(form_number.value.length == 0){
         form_number.value = form_number.getAttribute("placeholder")
         cambiarNumber()
@@ -120,23 +119,33 @@ function comprar(){
     btn.classList.add("desaparece")
     btn.disabled = true
 
-    document.querySelector(".div-carga").classList.remove("d-none")
+    btn_atras.setAttribute("disabled", "")
 
-    ancla.removeAttribute("href")
-    ancla.setAttribute("href", "#")
+    document.querySelector(".div-carga").classList.remove("d-none")
 
     setTimeout(() => {
         document.querySelector(".div-carga").classList.add("d-none")
+        btn_atras.removeAttribute("disabled")
         terminando.classList.remove("d-none")
-        ancla.removeAttribute("href")
-        ancla.setAttribute("href", "../index.html")
     }, 3000)
    
-
-   
-
+    document.querySelector(".ancla").addEventListener("click", ()=>{
+        articulosCarrito = [];
+        agregarStorage()
+        cntProductosCarrito()
+        volver()
+        
+    })
     
 }
+
+
+//Volver
+function volver(){
+        seccionPrincipal.classList.remove("d-none")
+        seccionTarjetas.classList.add("d-none")
+}
+
 
 //Funciones para cambiar el texto
 

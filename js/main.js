@@ -35,11 +35,14 @@ const check_generoHombre = document.querySelector("#option-Hombre")
 const classProductos = document.querySelectorAll(".producto")
 const totalCarrito = document.querySelector("#totalCarrito")
 const btn_comprar = document.querySelector("#comprar")
+const seccionPrincipal = document.querySelector("#seccion-principal")
+const seccionTarjetas = document.querySelector("#seccion-Tarjetas")
+console.log(seccionTarjetas)
 
 //Event
 contenedor_productos.addEventListener("click", agregarCarrito)
 
-btn_comprar.addEventListener("click", comprar)
+btn_comprar.addEventListener("click", comprarPrincipal)
 
 barra_carrito.addEventListener("click", elimina_resta)
 
@@ -63,31 +66,31 @@ check_generoHombre.addEventListener("change", filtrarHombre)
 
 //Cargar productos cuando recarge la pagina
 window.addEventListener("load", () => {
-    
-    if(!si_no){
         articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
         agregarAlHTML()
-    }else{
-        vaciarCarrito()
-        location.href = "http://127.0.0.1:5501/index.html"
-        
-    }
 
-    recuperarDatos()
+        recuperarDatos()
 
 })
 
 //Barra con la lista de productos
 boton_carrito.addEventListener("click", () =>{
-    barra_carrito.classList.toggle("activate")
+    barra_carrito.classList.add("activate")
 })
 boton_cierreCarrito.addEventListener("click", () =>{
-    barra_carrito.classList.toggle("activate")
+    barra_carrito.classList.remove("activate")
 })
 
+//Comprar 
+function comprarPrincipal(){
+    barra_carrito.classList.remove("activate")
+    seccionPrincipal.classList.add("d-none")
+    seccionTarjetas.classList.remove("d-none")
+}
 
 
-//Funciones para agregar, eliminar y vaciar el carrito y localStorage
+//Funciones para agregar, eliminar y vaciar el carrito y localStoraga
+
 
 async function recuperarDatos(){
     const peticion = await fetch("./data.json",  {
@@ -234,7 +237,6 @@ function elimina_resta(evt){
 function agregarStorage(){
     localStorage.setItem("Carrito", JSON.stringify(articulosCarrito))
 }
-
 
 //funciones de filtrado
 

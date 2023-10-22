@@ -10,25 +10,28 @@
    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <link rel="stylesheet" href="./css/styles.css">
+   <link rel="stylesheet" href="./css/tarjeta.css">
 
   <script src="./JS/bootstrap.bundle.min.js" defer></script>
   <script src="https://kit.fontawesome.com/fa3a0fd4c5.js"  crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="../js/tarjeta.js" defer></script>
     
 </head>
 
 
 <body class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
  
+  <section id="seccion-principal" class="vh-100 w-100 d-flex flex-column justify-content-center align-items-center">
     <header class=" top-0 w-100 p-2">
       
       <div class="carrito">
         <button id="boton_cierre">  <i class="fas fa-times fa-2x1" > </i> </button>
         <div class="contenedorProductos"> </div>
         <p class="total d-none"></p>
-        <a class=" d-none" id="comprar" href="./pages/tarjeta.html">Comprar</a>
+        <button class=" d-none" id="comprar">Comprar</button>
         <a class="eliminarProductos" href="#"> Eliminar todo</a>
         
       </div>
@@ -117,8 +120,111 @@
         </section>  
       
     </main>
+  </section>
+    
 
-
+  <section id="seccion-Tarjetas" class="d-none vh-100 w-100">
+      <main>
+          <button id="volverAtras"> <i class="fas fa-long-arrow-alt-left me-1"></i> Volver atras</button>
+          <section class="tarjetas-section">
+              <div class="card-front">
+                  <img src="../assets/img/cards/bg-card-front.png" alt="imagen simulando una tarjeta">
+                  <div class="card-front-info">
+                      <img src="../assets/img/cards/card-logo.svg" alt="Logo de la tarjeta">
+                      <p class="card-front-number">0000 0000 0000 0000</p>
+                      <div class="card-name-date">
+                          <p class="card-front-name">Name </p>
+                          <p class="card-front-date"> 00/00</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="card-back">
+                  <img src="../assets/img/cards/bg-card-back.png" alt="Atras de la tarjeta">
+                  <p class="card-pin">000</p>
+              </div>
+          </section>
+         
+  
+          <section class="form-section">
+              
+             
+  
+              <form action="" id="form" class="datos-personales">
+                      <h1>Datos personales</h1>
+                      <div class="form-group">
+                          <label for="nya">Nombrey apellido</label>
+                          <input id="nya" name="nya" class="form-name" type="text" placeholder="Nazareno Salvatierra">
+                      </div>
+                      
+                      <div class="form-group">
+                          <label for="casa">Dirrecion</label>
+                          <input type="text" name="casa" class="card-number" id="casa" placeholder="Mitre y Urquiza 456">
+                      </div>
+                      <div class="form-group">
+                          <label for="telefono">Numero</label>
+                          <input type="text" name="telefono" class="card-number" id="telefono" placeholder="385 123 4567">
+                      </div>
+                      
+              </form>
+  
+              <form action="" id="form" class="">
+                  <h1>Datos de la tarjeta</h1>
+                      <div class="form-group">
+                          <label for="name">Nombre que indica la tarjeta</label>
+                          <input id="name" name="name" class="form-name" type="text" placeholder="Nazareno Salvatierra" autocomplete="additional-name" required>
+                      </div>
+                      
+                      <div class="form-group">
+                          <label for="number">Numero de trajeta</label>
+                          <input type="text" name="number" class="card-number" id="number" maxlength="16" minlength="16" placeholder="123456789123000" required>
+                      </div>
+  
+                      <div class="form-group">
+                          <div class="w-100">
+                              <label for="month" class="label-auto me-4">Vencimiento</label>
+                              <label for="form-pin" class="label-auto">PIN</label>
+                          </div>
+                          <input type="text" class="form-month" name="month" id="month" maxlength="2" minlength="2" placeholder="MM">
+                          <input type="text" class="form-year" id="year" maxlength="2" minlength="2" placeholder="YY">
+      
+                          <input type="text" placeholder="123" name="form-pin" maxlength="3" minlength="3" id="form-pin" class="form-pin ms-4">
+                      </div>
+  
+                      
+                      
+              </form>
+  
+              <button id="btn-confirmarCompra">Confirmar</button>
+  
+              <section class="seccion-terminado d-none">
+                  <div class="div-img-completado">
+                      <img src="../assets/img/cards/icon-complete.svg" alt="icono de completado">
+                  </div>
+  
+                  <div class="texto-terminado">
+                      <p class="fuerte-texto">Gracias!</p>
+                      <p class="texto-gris">Su compra fue realizada con exito</p>
+                  </div>
+  
+                  <button id="btn-confirmarCompra" class="ancla">Volver al menu</button>
+                  
+              </section>
+  
+              <div class="d-none div-carga">
+                  <img src="../assets/gif/icons8-carga.gif" alt="gif de carga">
+                  <p class="fuerte-texto">Realizando compra...</p>
+              </div>
+          </section>
+         
+  
+  
+  
+      </main>
+  
+  </section>
     
 </body>
+
+
 </html>
