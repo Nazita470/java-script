@@ -101,7 +101,9 @@ async function recuperarDatos(){
         const json = await peticion.json()
         console.log(json)
         mostrarFiltrado("", json)
+        recuperarProductos(json)
         cntProductosCarrito()
+        console.log(productos)
     }else{
         console.log(peticion)
         console.log("Esta mal la peticion")
@@ -112,6 +114,7 @@ async function recuperarDatos(){
 function agregarCarrito(evt){
 
     if(evt.target.classList.contains("botonAgregar")){
+        console.log("click")
         const producto = evt.target.parentElement.parentElement
         let img = producto.querySelector("img").src
         let nombre_p = producto.querySelector(".nombreProducto").textContent
@@ -127,7 +130,6 @@ function agregarCarrito(evt){
             cantidad: 1,
             subTotal: subTotal
         }
-        if(articulosCarrito){
             if(articulosCarrito.some( prod => prod.id === p.id)) {
                 const productosCorregidos = articulosCarrito.map( item => {
                     if(item.id == p.id){
@@ -149,7 +151,7 @@ function agregarCarrito(evt){
               articulosCarrito = productosCorregidos
     
             }
-        }
+        
 
         else {
             articulosCarrito.push(p);
@@ -233,24 +235,6 @@ function agregarStorage(){
     localStorage.setItem("Carrito", JSON.stringify(articulosCarrito))
 }
 
-//funcion para mostrar el alert 
-function comprar(){
-    const precio = calcularTotal()
-    Swal.fire({
-        title: 'Pago total $' + precio,
-        showDenyButton: true,
-        denyButtonText: `Cancel`,
-        html: ''
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          Swal.fire('Pago realizado', '', 'success')
-          articulosCarrito = []
-          agregarAlHTML()
-          cntProductosCarrito()
-        } 
-      })
-}
 
 //funciones de filtrado
 
