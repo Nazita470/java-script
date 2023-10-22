@@ -35,7 +35,6 @@ const check_generoHombre = document.querySelector("#option-Hombre")
 const classProductos = document.querySelectorAll(".producto")
 const totalCarrito = document.querySelector("#totalCarrito")
 const btn_comprar = document.querySelector("#comprar")
-console.log(totalCarrito)
 
 //Event
 contenedor_productos.addEventListener("click", agregarCarrito)
@@ -91,7 +90,7 @@ boton_cierreCarrito.addEventListener("click", () =>{
 //Funciones para agregar, eliminar y vaciar el carrito y localStorage
 
 async function recuperarDatos(){
-    const peticion = await fetch("../data.json", {
+    const peticion = await fetch("./data.json", {
         method: 'GET',
         headers: new Headers({ 'Content-type': 'data/json'}),
         mode: 'no-cors'
@@ -613,7 +612,7 @@ function notificacion(){
 }
 
 function cntProductosCarrito(){
-    if(articulosCarrito.length != 0){
+    if(articulosCarrito){
        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
        boton_carrito.querySelector("span").classList.remove("d-none")
 
