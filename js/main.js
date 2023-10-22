@@ -14,6 +14,7 @@ let seleccionado = zapatillasCheck || remerasCheck || pantalonesCheck || shortsC
 
 
 //Declarar constantes
+const recuesURL = "data.json"
 const valor = window.location.search;
 const urlParams = new URLSearchParams(valor);
 let si_no = urlParams.get("borrar")
@@ -63,6 +64,7 @@ check_generoHombre.addEventListener("change", filtrarHombre)
 
 //Cargar productos cuando recarge la pagina
 window.addEventListener("load", () => {
+    
     if(!si_no){
         articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
         agregarAlHTML()
@@ -72,16 +74,8 @@ window.addEventListener("load", () => {
         
     }
 
-    fetch("./data.json")
-    .then((res) => res.json())
-    .then((json) => {
-        mostrarFiltrado("", json)
-        recuperarProductos(json)
-    })
-    .catch((err) => err)
-   
-   
-    cntProductosCarrito()
+    recuperarDatos()
+
 })
 
 //Barra con la lista de productos
@@ -95,6 +89,24 @@ boton_cierreCarrito.addEventListener("click", () =>{
 
 
 //Funciones para agregar, eliminar y vaciar el carrito y localStorage
+
+async function recuperarDatos(){
+    const peticion = await fetch("../data.json", {
+        method: 'GET',
+        headers: new Headers({ 'Content-type': 'data/json'}),
+        mode: 'no-cors'
+    })
+    if(peticion.ok){
+        console.log(peticion)
+        const json = await peticion.json()
+        mostrarFiltrado("", json)
+        cntProductosCarrito()
+    }else{
+        console.log(peticion)
+        console.log("Esta mal la peticion")
+    }
+}
+
 
 function agregarCarrito(evt){
 
@@ -540,7 +552,7 @@ function limpiarHTML(){
 
 }
 
-function mostrarFiltrado(mensaje, arr){
+function mostrarFiltrado(mensaje, array){
     console.log(productoMostrar)
     borrarProductosMain()
     
@@ -549,7 +561,7 @@ function mostrarFiltrado(mensaje, arr){
     }else {
 
     }
-    arr.forEach((item) => {
+    array.forEach((item) => {
         let div = document.createElement("div")
         div.classList.add("producto")
         div.setAttribute("producto", `${item.producto}`)
