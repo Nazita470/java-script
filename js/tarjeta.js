@@ -132,7 +132,14 @@ function comprar(){
         articulosCarrito = [];
         agregarStorage()
         cntProductosCarrito()
-        volver()      
+        volver() 
+        
+
+        forms.forEach((item) => {
+            item.classList.remove("d-none")
+        })
+
+        terminando.classList.add("d-none")
     })
     
 }
