@@ -68,10 +68,12 @@ window.addEventListener("load", () => {
             articulosCarrito = []
         }else{
             articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
-            agregarAlHTML()
-
-            recuperarDatos()
+           
         }
+
+        agregarAlHTML()
+
+        recuperarDatos()
 
 })
 
