@@ -155,6 +155,9 @@ function agregarCarrito(evt){
               articulosCarrito = productosCorregidos
     
             }
+            else{
+                articulosCarrito.push(p);
+            }
         
 
         
