@@ -1,5 +1,13 @@
 
-let articulosCarrito = []
+let articulosCarrito = [{
+    "producto": "remera",
+    "genero": "m",
+    "id": "2",
+    "img": "./assets/img/Hombres/remera_hombre_negra.jpg",
+    "nombre": "Remera negra",
+    "precio": "$11.000"
+}]
+console.log(articulosCarrito)
 const productos = []
 let woman = false
 let man = false
