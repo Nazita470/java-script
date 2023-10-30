@@ -1,6 +1,6 @@
 
 let articulosCarrito = []
-//console.log(articulosCarrito)
+//console.log(articulo)
 const productos = []
 let woman = false
 let man = false
@@ -134,7 +134,8 @@ function agregarCarrito(evt){
         }
 
         console.log(articulosCarrito)
-        if(articulosCarrito != null) {
+        articulosCarrito.push(p);
+     /*  if(articulosCarrito != null) {
             if(articulosCarrito.some( prod => prod.id === p.id)) {
                 const productosCorregidos = articulosCarrito.map( item => {
                     if(item.id == p.id){
@@ -166,7 +167,7 @@ function agregarCarrito(evt){
 
         else {
             articulosCarrito.push(p);
-        }
+        }*/
            
 
         agregarAlHTML()
