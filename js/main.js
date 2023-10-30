@@ -132,7 +132,7 @@ function agregarCarrito(evt){
             subTotal: subTotal
         }
 
-
+        console.log(articulosCarrito)
         if(articulosCarrito) {
             if(articulosCarrito.some( prod => prod.id === p.id)) {
                 const productosCorregidos = articulosCarrito.map( item => {
