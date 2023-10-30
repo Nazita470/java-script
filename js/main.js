@@ -131,6 +131,9 @@ function agregarCarrito(evt){
             cantidad: 1,
             subTotal: subTotal
         }
+
+
+        if(articulosCarrito) {
             if(articulosCarrito.some( prod => prod.id === p.id)) {
                 const productosCorregidos = articulosCarrito.map( item => {
                     if(item.id == p.id){
@@ -154,9 +157,13 @@ function agregarCarrito(evt){
             }
         
 
+        
+        }
+
         else {
             articulosCarrito.push(p);
         }
+           
 
         agregarAlHTML()
 
@@ -587,7 +594,7 @@ function notificacion(){
 }
 
 function cntProductosCarrito(){
-    if(articulosCarrito.length != 0){
+    if(articulosCarrito.length){
        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
        boton_carrito.querySelector("span").classList.remove("d-none")
 
