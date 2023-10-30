@@ -594,7 +594,7 @@ function notificacion(){
 }
 
 function cntProductosCarrito(){
-    if(articulosCarrito.length){
+    if(articulosCarrito != null){
        boton_carrito.querySelector("span").innerText = `${articulosCarrito.length}`
        boton_carrito.querySelector("span").classList.remove("d-none")
 
