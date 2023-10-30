@@ -65,6 +65,7 @@ check_generoHombre.addEventListener("change", filtrarHombre)
 
 //Cargar productos cuando recarge la pagina
 window.addEventListener("load", () => {
+        console.log(localStorage.getItem("Carrito"))
         articulosCarrito = JSON.parse(localStorage.getItem("Carrito"))
         agregarAlHTML()
 
