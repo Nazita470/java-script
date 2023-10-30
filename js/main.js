@@ -133,7 +133,7 @@ function agregarCarrito(evt){
         }
 
         console.log(articulosCarrito)
-        if(articulosCarrito) {
+        if(articulosCarrito != null) {
             if(articulosCarrito.some( prod => prod.id === p.id)) {
                 const productosCorregidos = articulosCarrito.map( item => {
                     if(item.id == p.id){
